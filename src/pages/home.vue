@@ -23,7 +23,7 @@
              <div :class="{active2:on==2}"><img src="../../static/image/home/CCC.png" alt=""></div>
              <div :class="{active2:on==0}"><img src="../../static/image/home/BBB.png" alt=""></div>
            </div>
-           <ul>
+           <ul @mouseout="out()">
              <li @mouseover="tab(0)" :class="{active:on==0}">自然遗产分布</li>
              <li @mouseover="tab(1)" :class="{active:on==1}">文化遗产分布</li>
              <li @mouseover="tab(2)" :class="{active:on==2}">一带一路地图</li>
@@ -75,19 +75,35 @@
 <script>
   import Header from '../components/header'
     export default {
+
       name: "home",
       data(){
         return{
-          on:0
+          on:0,
+          timer:{}
         }
       },
       methods:{
         tab(x){
           this.on = x
+          clearInterval(this.timer)
+        },
+        out(){
+          let a = 0
+          this.timer = setInterval(()=>{
+            console.log(a)
+            this.on = a%3
+            a++
+          },2600)
         }
       },
       mounted(){
-
+        let a = 0
+        this.timer = setInterval(()=>{
+          console.log(a)
+          this.on = a%3
+          a++
+        },2600)
       },
       components:{
         Header,
@@ -161,12 +177,16 @@
               left 0
               width 100%
               height 100%
-              display none
+              visibility hidden
+              transition 2s
+              opacity 0
               img
                 width 100%
                 height 100%
             .active2
-              display block
+              visibility visible
+              opacity 1
+              //transition 1s
           >ul
             width 100%
             height 40px
