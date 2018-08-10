@@ -58,7 +58,9 @@ div
       a
         border-right none
     .active
-      background #0764a7
+      background #004f89
+      transform translate(-1px,0)
+      //background #0764a7
   .sou
     width 148px
     height 42px

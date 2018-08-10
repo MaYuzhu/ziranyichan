@@ -32,19 +32,19 @@
         <div class="xia">
           <div>
             <p>监测保护</p>
-            <div class="zhe"></div>
+            <div class="zhe zhe1"></div>
           </div>
           <div>
             <p>评估预警</p>
-            <div class="zhe"></div>
+            <div class="zhe zhe2"></div>
           </div>
           <div>
             <p>决策支持</p>
-            <div class="zhe"></div>
+            <div class="zhe zhe3"></div>
           </div>
           <div>
             <p>可视化展示</p>
-            <div class="zhe"></div>
+            <div class="zhe zhe4"></div>
           </div>
         </div>
       </div>
@@ -91,7 +91,6 @@
         out(){
           let a = 0
           this.timer = setInterval(()=>{
-            console.log(a)
             this.on = a%3
             a++
           },2600)
@@ -100,7 +99,7 @@
       mounted(){
         let a = 0
         this.timer = setInterval(()=>{
-          console.log(a)
+          //console.log(a)
           this.on = a%3
           a++
         },2600)
@@ -166,7 +165,6 @@
           width 100%
           height 302px
           position relative
-          border 1px solid
           .wrap_img
             position absolute
             width 100%
@@ -178,7 +176,7 @@
               width 100%
               height 100%
               visibility hidden
-              transition 2s
+              transition 1.3s
               opacity 0
               img
                 width 100%
@@ -220,7 +218,14 @@
               left 0
               width 100%
               height 100%
-              background rgba(51, 129, 197,0.839)
+            >.zhe1
+              background rgba(3, 187, 222, 0.8)
+            >.zhe2
+              background rgba(51, 129, 197, 0.8)
+            >.zhe3
+              background rgba(71, 151, 222, 0.8)
+            >.zhe4
+              background rgba(0, 160, 219, 0.8)
             >p
               position absolute
               top 90px
