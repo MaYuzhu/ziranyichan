@@ -24,7 +24,9 @@
              <div :class="{active2:on==0}"><img src="../../static/image/home/BBB.png" alt=""></div>
            </div>
            <ul @mouseout="out()">
-             <li @mouseover="tab(0)" :class="{active:on==0}">自然遗产分布</li>
+             <li @mouseover="tab(0)" :class="{active:on==0}">
+               <router-link to="/chengguo/ziran">自然遗产分布</router-link>
+             </li>
              <li @mouseover="tab(1)" :class="{active:on==1}">文化遗产分布</li>
              <li @mouseover="tab(2)" :class="{active:on==2}">一带一路地图</li>
            </ul>
@@ -201,6 +203,8 @@
               line-height 40px
               text-align center
               cursor pointer
+              a
+                color #fff
             .active
               background rgba(0,212,250,.9)
         .xia

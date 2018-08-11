@@ -13,37 +13,31 @@
               <li @click="goto('/chengguo/jiaohu')" :class="{active:isChang('./jiaohu')}">
                 成果交互<div :class="{sanjiao:isChang('./jiaohu')}"></div></li>
             </ul>
-            <router-view/>
-            <!--<div class="gundong">
-              <p>按地理位置</p>
-              <select name="weizhi" id="weizhi">
-                <option value ="all">全 域</option>
-                <option value ="zhou">洲 属</option>
-                <option value="guo">国 别</option>
-                <option value="sheng">省 际</option>
-              </select>
-              <p style="margin-top:30px">按入选时间</p>
-              <select style="padding: 0 0 0 35px" name="shijian" id="shijian">
-                <option value ="all">2000~至今</option>
-                <option value ="zhou">1990~1999</option>
-                <option value="guo">1980~1989</option>
-                <option value="sheng">1970~1979</option>
-              </select>
-              <p style="margin-top:30px">按字母查看</p>
-              <ul>
-                <li @click="tab1(0)" :class="{active:on1==0}">A~G<div :class="{sanjiao:on1==0}"></div></li>
-                <li @click="tab1(1)" :class="{active:on1==1}">H~N<div :class="{sanjiao:on1==1}"></div></li>
-                <li @click="tab1(2)" :class="{active:on1==2}">O~T<div :class="{sanjiao:on1==2}"></div></li>
-                <li @click="tab1(3)" :class="{active:on1==3}">U~Z<div :class="{sanjiao:on1==3}"></div></li>
-              </ul>
 
-            </div>-->
+            <router-view  v-on:childByValue="childByValue"
+                          v-on:childByValue1="childByValue1"></router-view>
+
           </div>
         </div>
         <div class="right">
-          <div class="right_content">
+          <div class="right_content1" v-show="isChang('./ziran')">
             <p>自然遗产</p>
-            <div>
+            <div class="right_big_img">
+              <img src="../../static/image/chengguo/ziran1.gif" alt="">
+            </div>
+          </div>
+          <div class="right_content2" v-show="isChang('./zhuanti')">
+            <p>专题</p>
+            <div class="right_big_img">
+              <img v-show="item1=='0'" src="../../static/image/chengguo/zhuanti1.jpg" alt="">
+              <div id="picture" v-if="item1=='图片'">
+                <Picture></Picture>
+              </div>
+            </div>
+          </div>
+          <div class="right_content3" v-show="isChang('./jiaohu')">
+            <p>成果交互</p>
+            <div class="right_big_img">
               <img src="../../static/image/chengguo/ziran1.gif" alt="">
             </div>
           </div>
@@ -53,28 +47,56 @@
 </template>
 
 <script>
-  import Header from '../components/header'
+  import Header from '../components/header.vue'
+  import Picture from '../components/picture.vue'
   export default {
     name: "chengguo",
 
     components:{
       Header,
+      Picture,
+      searchSearch: function (resolve) {
+        //异步组件写法
+        require(['../components/picture.vue'], resolve)
+      }
     },
+
     data(){
       return{
         on:0,
-        on1:0
+        on1:0,
+        item:'专题',
+        item1:'0'
       }
     },
     methods:{
-
       goto(path){
         this.$router.push(path)
       },
       isChang(path){
         return this.$route.path.search(path) !== -1
       },
+      childByValue: function (childValue) {
+        // childValue就是子组件传过来的值
+        this.item = childValue
+        $('.right_content2 p').text(this.item)
+      },
+      childByValue1: function (childValue) {
+        // childValue就是子组件传过来的值
+        this.item1 = childValue
+        console.log(this.item1)
+        this.$nextTick(()=>{
+
+        })
+      }
     },
+    computed:{
+
+    },
+    mounted(){
+
+    },
+
   }
 </script>
 
@@ -113,8 +135,14 @@
               border-bottom 6px solid transparent
 
     .right
-      .right_content
+      .right_content1,.right_content2,.right_content3
         p
-          margin 10px 0
+          margin 9px 0 10px
           font-size 16px
+        .right_big_img
+          width 760px
+          height 458px
+          //overflow hidden
+          img
+            width 100%
 </style>
