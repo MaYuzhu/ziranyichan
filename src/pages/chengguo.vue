@@ -32,6 +32,7 @@
               <img v-show="item1=='0'" src="../../static/image/chengguo/zhuanti1.jpg" alt="">
               <div id="picture" v-if="item1=='图片'">
                 <Picture></Picture>
+                <Info></Info>
               </div>
             </div>
           </div>
@@ -49,16 +50,14 @@
 <script>
   import Header from '../components/header.vue'
   import Picture from '../components/picture.vue'
+  import Info from '../components/info.vue'
   export default {
     name: "chengguo",
 
     components:{
       Header,
       Picture,
-      searchSearch: function (resolve) {
-        //异步组件写法
-        require(['../components/picture.vue'], resolve)
-      }
+      Info,
     },
 
     data(){
@@ -85,9 +84,7 @@
         // childValue就是子组件传过来的值
         this.item1 = childValue
         console.log(this.item1)
-        this.$nextTick(()=>{
 
-        })
       }
     },
     computed:{
@@ -141,7 +138,7 @@
           font-size 16px
         .right_big_img
           width 760px
-          height 458px
+          //height 458px
           //overflow hidden
           img
             width 100%

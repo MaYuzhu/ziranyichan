@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Home from '../pages/home'
-import Chengguo from '../pages/chengguo'
+import Home from '../pages/home.vue'
+import Chengguo from '../pages/chengguo.vue'
 
-import Ziran from '../pages/chengguo2ji/ziranyichan'
-import Zhuanti from '../pages/chengguo2ji/zhuantishuju'
-import Jiaohu from '../pages/chengguo2ji/jiaohu'
+import Belt from '../pages/belt.vue'
+import Show_v from '../pages/show_v.vue'
+
+import Ziran from '../pages/chengguo2ji/ziranyichan.vue'
+import Zhuanti from '../pages/chengguo2ji/zhuantishuju.vue'
+import Jiaohu from '../pages/chengguo2ji/jiaohu.vue'
 
 
 Vue.use(Router)
@@ -48,6 +51,14 @@ export default new Router({
           redirect: '/chengguo/ziran'
         },
       ],
+    },
+    {
+      path: '/belt',
+      component: Belt,
+    },
+    {
+      path: '/show_v',
+      component: Show_v,
     },
   ]
 })

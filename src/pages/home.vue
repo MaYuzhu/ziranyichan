@@ -28,7 +28,8 @@
                <router-link to="/chengguo/ziran">自然遗产分布</router-link>
              </li>
              <li @mouseover="tab(1)" :class="{active:on==1}">文化遗产分布</li>
-             <li @mouseover="tab(2)" :class="{active:on==2}">一带一路地图</li>
+             <li @mouseover="tab(2)" :class="{active:on==2}">
+               <router-link to="/belt">一带一路地图</router-link></li>
            </ul>
          </div>
         <div class="xia">
@@ -44,7 +45,7 @@
             <p>决策支持</p>
             <div class="zhe zhe3"></div>
           </div>
-          <div>
+          <div @click="goto('/show_v')">
             <p>可视化展示</p>
             <div class="zhe zhe4"></div>
           </div>
@@ -96,6 +97,9 @@
             this.on = a%3
             a++
           },2600)
+        },
+        goto(path){
+        	this.$router.push(path)
         }
       },
       mounted(){
