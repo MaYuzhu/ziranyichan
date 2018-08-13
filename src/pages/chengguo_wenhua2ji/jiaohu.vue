@@ -1,6 +1,6 @@
 <template>
   <div>
-    成果交互
+
   </div>
 </template>
 

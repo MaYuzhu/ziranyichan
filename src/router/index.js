@@ -2,14 +2,20 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Home from '../pages/home.vue'
-import Chengguo from '../pages/chengguo.vue'
+import ChengguoZiran from '../pages/chengguo_ziran.vue'
+import ChengguoWenhua from '../pages/chengguo_wenhua.vue'
 
 import Belt from '../pages/belt.vue'
 import Show_v from '../pages/show_v.vue'
+import Jiance from '../pages/jiance'
 
-import Ziran from '../pages/chengguo2ji/ziranyichan.vue'
-import Zhuanti from '../pages/chengguo2ji/zhuantishuju.vue'
-import Jiaohu from '../pages/chengguo2ji/jiaohu.vue'
+import Ziran from '../pages/chengguo_ziran2ji/ziranyichan.vue'
+import Zhuanti from '../pages/chengguo_ziran2ji/zhuantishuju.vue'
+import Jiaohu from '../pages/chengguo_ziran2ji/jiaohu.vue'
+
+import Wenhua from '../pages/chengguo_wenhua2ji/ziranyichan.vue'
+import WenZhuanti from '../pages/chengguo_wenhua2ji/zhuantishuju.vue'
+import WenJiaohu from '../pages/chengguo_wenhua2ji/jiaohu.vue'
 
 
 Vue.use(Router)
@@ -28,8 +34,8 @@ export default new Router({
       }
     },
     {
-      path: '/chengguo',
-      component:Chengguo,
+      path: '/chengguoziran',
+      component:ChengguoZiran,
       meta: {
         keepAlive: true // 需要缓存
       },
@@ -47,8 +53,33 @@ export default new Router({
           component: Jiaohu
         },
         {
-          path: '', // 请求的: /shop
-          redirect: '/chengguo/ziran'
+          path: '',
+          redirect: '/chengguoziran'
+        },
+      ],
+    },
+    {
+      path: '/chengguowenhua',
+      component:ChengguoWenhua,
+      meta: {
+        keepAlive: true // 需要缓存
+      },
+      children:[
+        {
+          path: 'ziran',
+          component: Wenhua
+        },
+        {
+          path: 'zhuanti',
+          component: WenZhuanti
+        },
+        {
+          path: 'jiaohu',
+          component: WenJiaohu
+        },
+        {
+          path: '',
+          redirect: '/chengguowenhua'
         },
       ],
     },
@@ -59,6 +90,10 @@ export default new Router({
     {
       path: '/show_v',
       component: Show_v,
+    },
+    {
+      path: '/jiance',
+      component: Jiance,
     },
   ]
 })

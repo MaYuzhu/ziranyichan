@@ -3,14 +3,14 @@
       <Header></Header>
       <div class="wrap_zi">
         <div class="left">
-          <p>首页 - 成果 - 自然遗产分布</p>
+          <p><router-link to="/">首页</router-link> - 成果 - 文化遗产分布</p>
           <div>
             <ul>
-              <li @click="goto('/chengguo/ziran')" :class="{active:isChang('./ziran')}">
-                自然遗产<div :class="{sanjiao:isChang('./ziran')}"></div></li>
-              <li @click="goto('/chengguo/zhuanti')" :class="{active:isChang('./zhuanti')}">
+              <li @click="goto('/chengguowenhua/ziran')" :class="{active:isChang('./ziran')}">
+                文化遗产<div :class="{sanjiao:isChang('./ziran')}"></div></li>
+              <li @click="goto('/chengguowenhua/zhuanti')" :class="{active:isChang('./zhuanti')}">
                 专题数据<div :class="{sanjiao:isChang('./zhuanti')}"></div></li>
-              <li @click="goto('/chengguo/jiaohu')" :class="{active:isChang('./jiaohu')}">
+              <li @click="goto('/chengguowenhua/jiaohu')" :class="{active:isChang('./jiaohu')}">
                 成果交互<div :class="{sanjiao:isChang('./jiaohu')}"></div></li>
             </ul>
 
@@ -21,17 +21,22 @@
         </div>
         <div class="right">
           <div class="right_content1" v-show="isChang('./ziran')">
-            <p>自然遗产</p>
+            <p>文化遗产</p>
             <div class="right_big_img">
               <img src="../../static/image/chengguo/ziran1.gif" alt="">
             </div>
           </div>
           <div class="right_content2" v-show="isChang('./zhuanti')">
-            <p>专题</p>
+            <p class="title_zhuan">{{item}}</p>
+            <Fenxiang class="fen"></Fenxiang>
             <div class="right_big_img">
               <img v-show="item1=='0'" src="../../static/image/chengguo/zhuanti1.jpg" alt="">
               <div id="picture" v-if="item1=='图片'">
                 <Picture></Picture>
+                <Info></Info>
+              </div>
+              <div id="yao" v-if="item1=='遥感影像'">
+                <Yaogan></Yaogan>
                 <Info></Info>
               </div>
             </div>
@@ -51,6 +56,8 @@
   import Header from '../components/header.vue'
   import Picture from '../components/picture.vue'
   import Info from '../components/info.vue'
+  import Fenxiang from '../components/fenxiang.vue'
+  import Yaogan from '../components/yaogan.vue'
   export default {
     name: "chengguo",
 
@@ -58,6 +65,8 @@
       Header,
       Picture,
       Info,
+      Fenxiang,
+      Yaogan,
     },
 
     data(){
@@ -78,13 +87,12 @@
       childByValue: function (childValue) {
         // childValue就是子组件传过来的值
         this.item = childValue
-        $('.right_content2 p').text(this.item)
+        //$('.right_content2 .title_zhuan').text(this.item)
       },
       childByValue1: function (childValue) {
         // childValue就是子组件传过来的值
         this.item1 = childValue
-        console.log(this.item1)
-
+        //console.log(this.item1)
       }
     },
     computed:{
@@ -140,6 +148,12 @@
           width 760px
           //height 458px
           //overflow hidden
+      .right_content2
+        position relative
+        .fen
+          position absolute
+          top 2px
+          right 5px
           img
             width 100%
 </style>

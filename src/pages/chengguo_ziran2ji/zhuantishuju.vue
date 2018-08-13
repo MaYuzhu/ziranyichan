@@ -1,11 +1,12 @@
 <template>
   <div class="zhuanti_wrap">
     <ul id="accordion" class="accordion">
-      <li v-for="(item,index) in diming" :key="index">
-        <div class="link" @click="childClick(item)">{{item}}<i class="iconfont icon-sanjiao"></i></div>
+      <li v-for="(item,index) in diming" :key="index"  @click="childClick(item,index)">
+        <div class="link">{{item}}<i class="iconfont icon-sanjiao"></i></div>
         <ul class="submenu">
           <li v-for="(item1,index) in diList" :key="index"
-              @click="childClick1(item1)">
+              :class="{on:curr==index}"
+              @click="childClick1(item1,index)">
             <a href="javascript:;">{{item1}}</a>
           </li>
         </ul>
@@ -21,27 +22,31 @@
       name: "zhuantishuju",
       data(){
       	return{
-      		diming:['黄山','神农架','长城'],
+      		diming:['黄山','神农架',],
           diList:['图片','动画','遥感影像','4D产品','三维模型','智能识别','模型分析'],
           curr:-1,
-          childValue: '',
+          childValue: {},
           childValue1: '',
         }
       },
       methods:{
-        active(index){
-        	//console.log(this.curr)
-          this.curr = index
-        },
-        childClick (item) {
+        childClick (item,index) {
+          if($('#accordion>li')[index].classList.contains('open')){
+            this.childValue.type = item
+            this.childValue.curr = '0'
+          }else {
+            this.childValue.type = '专题'
+
+          }
           // childByValue是在父组件on监听的方法
           // 第二个参数this.childValue是需要传的值
-          this.childValue = item
+
           this.$emit('childByValue', this.childValue)
         },
-        childClick1 (item) {
+        childClick1 (item,index) {
           // childByValue是在父组件on监听的方法
           // 第二个参数this.childValue是需要传的值
+          this.curr = index
           this.childValue1 = item
           this.$emit('childByValue1', this.childValue1)
         },
@@ -61,7 +66,7 @@
 
           var $el = e.data.el;
           var $this = $(this),
-            $next = $this.next();
+          $next = $this.next();
 
           $next.slideToggle();
           $this.parent().toggleClass('open');
@@ -123,6 +128,9 @@
           -o-transition: all 0.25s ease;
           transition: all 0.25s ease;
         a:hover
+          color #4797de
+      .on
+        a
           color #4797de
 
 </style>

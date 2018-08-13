@@ -3,50 +3,27 @@
     <Header></Header>
     <div class="wrap_belt">
       <div class="left_belt">
-        <p><router-link to="/">首页</router-link> > <span @click="current(-1)">可视化展示</span></p>
+        <p><router-link to="/">首页</router-link> > 监测保护</p>
         <div>
-          <p @click="current(-1)">数据分类</p>
+          <p>数据分类</p>
           <ul>
-            <li @click="current(0)" :class="{on:curr==0}">遗保故事</li>
-            <li @click="current(1)" :class="{on:curr==1}">社会经济</li>
-            <li @click="current(2)" :class="{on:curr==2}">人文风情</li>
-            <li @click="current(3)" :class="{on:curr==3}">天文地质</li>
-            <li @click="current(4)" :class="{on:curr==4}">科研交流</li>
-            <li @click="current(5)" :class="{on:curr==5}">历史变迁</li>
+            <li @click="current(0)" :class="{on:curr==0}">影像管理</li>
+            <li @click="current(1)" :class="{on:curr==1}">银山塔林</li>
+
           </ul>
           <img src="../../static/image/show_v/bg2.png" alt="">
         </div>
       </div>
       <div class="right_belt">
-        <p>可视化展示</p>
-        <div v-if="curr==-1">
-          <div class="top">
-            <div @click="current(0)">
-              <p>遗保故事</p>
-            </div>
-            <div>
-              <p>社会经济</p>
-            </div>
-          </div>
-          <div class="middle">
-            <div>
-              <p>人文风情</p>
-            </div>
-            <div>
-              <p>天文地质</p>
-            </div>
-            <div>
-              <p>科研交流</p>
+        <p></p>
+        <div>
+          <p v-if="curr==0">影像管理</p>
+          <div v-if="curr==1">
+            <div class="yinshan">
+              <iframe src="http://192.168.10.7:3000/monitor-data"
+                      id="myiframe" scrolling="yes" frameborder="0"></iframe>
             </div>
           </div>
-          <div class="bottom">
-            <div>
-              <p>历史变迁</p>
-            </div>
-          </div>
-        </div>
-        <div v-if="curr==0">
-          <Picture></Picture>
         </div>
       </div>
     </div>
@@ -56,16 +33,14 @@
 
 <script>
   import Header from '../components/header.vue'
-  import Picture from '../components/picture.vue'
   export default {
     data(){
       return{
-        curr:-1
+        curr:1
       }
     },
     components:{
       Header,
-      Picture
     },
     methods:{
       current(x){
@@ -87,7 +62,6 @@
       >p,>div
         width 90%
         margin 0 auto
-        cursor pointer
       >p
         height 40px
         line-height 40px
@@ -191,4 +165,10 @@
               background: linear-gradient(to right,rgba( 103, 139, 234 ,1),rgba( 103, 139, 234 ,0))
 
 
+      .yinshan
+        width 100%
+        height 522px
+        #myiframe
+          width 100%
+          height 100%
 </style>

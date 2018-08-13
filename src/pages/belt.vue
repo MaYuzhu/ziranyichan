@@ -3,7 +3,7 @@
     <Header></Header>
     <div class="wrap_belt">
       <div class="left_belt">
-        <p>首页 > 成果 > 一带一路</p>
+        <p><router-link to="/">首页</router-link> > 成果 > 一带一路</p>
         <div>
           <p>地图类型</p>
           <ul>

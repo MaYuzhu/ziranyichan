@@ -19,21 +19,29 @@
       <div class="center">
          <div class="shang">
            <div class="wrap_img">
-             <div :class="{active2:on==1}"><img src="../../static/image/home/AAA.png" alt=""></div>
-             <div :class="{active2:on==2}"><img src="../../static/image/home/CCC.png" alt=""></div>
-             <div :class="{active2:on==0}"><img src="../../static/image/home/BBB.png" alt=""></div>
+             <div :class="{active2:on==1}" id="ziranyichan">
+               <!--<img src="../../static/image/home/AAA.png" alt="">-->
+             </div>
+             <div :class="{active2:on==2}">
+               <img src="../../static/image/home/CCC.png" alt="">
+             </div>
+             <div :class="{active2:on==0}">
+               <img src="../../static/image/home/BBB.png" alt="">
+             </div>
            </div>
            <ul @mouseout="out()">
              <li @mouseover="tab(0)" :class="{active:on==0}">
-               <router-link to="/chengguo/ziran">自然遗产分布</router-link>
+               <router-link to="/chengguoziran/ziran">自然遗产分布</router-link>
              </li>
-             <li @mouseover="tab(1)" :class="{active:on==1}">文化遗产分布</li>
+             <li @mouseover="tab(1)" :class="{active:on==1}">
+               <router-link to="/chengguowenhua/ziran">文化遗产分布</router-link>
+             </li>
              <li @mouseover="tab(2)" :class="{active:on==2}">
                <router-link to="/belt">一带一路地图</router-link></li>
            </ul>
          </div>
         <div class="xia">
-          <div>
+          <div @click="goto('/jiance')">
             <p>监测保护</p>
             <div class="zhe zhe1"></div>
           </div>
@@ -103,12 +111,53 @@
         }
       },
       mounted(){
+        //轮播图
         let a = 0
         this.timer = setInterval(()=>{
           //console.log(a)
           this.on = a%3
           a++
         },2600)
+        //地图
+        var map, tileLayer;
+
+        G.ready(function() {
+
+          map = new G.Map('ziranyichan', {
+
+            minRes: 0.298582, //地图最小分辨率
+            maxRes: 156543.033928, //地图最大分辨率
+            maxExtent: [-20037508.342784, -20037508.342784, 20037508.342784, 20037508.342784],
+            zoomAnim: true, //缩放时是否支持动画效果
+            panAnim: true, //拖拽时是否支持惯性移动
+            hideLogo: false, //是否隐藏Logo
+            recordStatus: true, //是否在浏览器历史中记录每一次更新的状态
+            wrap: true, //是否显示环绕地图
+            continuouslyZoom: false, //是否允许无极缩放
+            initStatus: { //地图初始状态
+              center: [12673975, 4079823],  //地图中心
+              res: 4891.9698105, //分辨率
+              rotate: 0 //旋转角度
+            }
+          });
+
+          tileLayer = new G.Layer.Tile('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            cluster: ['a', 'b', 'c']
+          });
+          tileLayer.addTo(map);
+        });
+
+        function zoomIn(){
+          if(map){
+            map.zoomIn();
+          }
+        }
+
+        function zoomOut(){
+          if(map){
+            map.zoomOut();
+          }
+        }
       },
       components:{
         Header,
@@ -175,6 +224,7 @@
             position absolute
             width 100%
             height 100%
+            overflow hidden
             div
               position absolute
               top 0
@@ -218,22 +268,30 @@
           display flex
           justify-content space-between
           div
+            cursor pointer
             width 24%
             position relative
+            &:hover
+              .zhe
+                opacity 0.8
+              p
+                top 62px
             >.zhe
               position absolute
               top 0
               left 0
               width 100%
               height 100%
+              transition 0.5s
+              opacity 0.4
             >.zhe1
-              background rgba(3, 187, 222, 0.8)
+              background rgb(3, 187, 222)
             >.zhe2
-              background rgba(51, 129, 197, 0.8)
+              background rgb(51, 129, 197)
             >.zhe3
-              background rgba(71, 151, 222, 0.8)
+              background rgb(71, 151, 222)
             >.zhe4
-              background rgba(0, 160, 219, 0.8)
+              background rgb(0, 160, 219)
             >p
               position absolute
               top 90px
@@ -242,6 +300,8 @@
               text-align center
               z-index 10
               font-size 15px
+              transition 0.5s
+
           >:nth-child(1)
             background url("../../static/image/home/bottom01.png") center no-repeat
             background-size  auto 100%

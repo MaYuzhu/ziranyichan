@@ -3,7 +3,7 @@
     <ul>
       <li @click="goto('/home')" :class="{active:isChang('/home')}"><a href="javascript:;">关于HIST</a></li>
       <li><a href="javascript:;">活动</a></li>
-      <li @click="goto('/chengguo')" :class="{active:isChang('/chengguo')}"><a href="javascript:;">成果</a></li>
+      <li click="goto('/chengguo')" :class="{active:isChang('/chengguo')}"><a href="javascript:;">成果</a></li>
       <li><a href="javascript:;">伙伴</a></li>
       <li><a href="javascript:;">资源</a></li>
       <li><a href="javascript:;">互动</a></li>
