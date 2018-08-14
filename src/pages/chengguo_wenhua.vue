@@ -23,7 +23,8 @@
           <div class="right_content1" v-show="isChang('./ziran')">
             <p>文化遗产</p>
             <div class="right_big_img">
-              <img src="../../static/image/chengguo/ziran1.gif" alt="">
+              <iframe src="https://geohey.com/apps/dataviz/f3371cad262448509ff8226c61a72381/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+                      id="myiframe_wen" scrolling="yes" frameborder="0"></iframe>
             </div>
           </div>
           <div class="right_content2" v-show="isChang('./zhuanti')">
@@ -38,6 +39,10 @@
               <div id="yao" v-if="item1=='遥感影像'">
                 <Yaogan></Yaogan>
                 <Info></Info>
+              </div>
+              <div v-if="item1=='智能识别'">
+                <iframe src="http://36.110.66.204:9000/terrain-context/2"
+                        id="myiframe" scrolling="yes" frameborder="0"></iframe>
               </div>
             </div>
           </div>
@@ -54,7 +59,7 @@
 
 <script>
   import Header from '../components/header.vue'
-  import Picture from '../components/picture.vue'
+  import Picture from '../components/picture_changcheng.vue'
   import Info from '../components/info.vue'
   import Fenxiang from '../components/fenxiang.vue'
   import Yaogan from '../components/yaogan.vue'
@@ -146,8 +151,9 @@
           font-size 16px
         .right_big_img
           width 760px
-          //height 458px
-          //overflow hidden
+          #myiframe,#myiframe_wen
+            width 100%
+            height 522px
       .right_content2
         position relative
         .fen

@@ -23,7 +23,8 @@
           <div class="right_content1" v-show="isChang('./ziran')">
             <p>自然遗产</p>
             <div class="right_big_img">
-              <img src="../../static/image/chengguo/ziran1.gif" alt="">
+              <iframe src="https://geohey.com/apps/dataviz/e57275967a7e4d1c8ead95f4746af874/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+                      id="myiframe_zi" scrolling="yes" frameborder="0"></iframe>
             </div>
           </div>
           <div class="right_content2" v-show="isChang('./zhuanti')">
@@ -150,7 +151,7 @@
           font-size 16px
         .right_big_img
           width 760px
-          #myiframe
+          #myiframe,#myiframe_zi
             width 100%
             height 522px
       .right_content2

@@ -8,7 +8,7 @@
       </div>
       <div class="xin">
         <span class="key">更新时间:</span><span class="value">2018-07-23 18:09:13</span>
-        <span class="key">科学类别:</span><span class="value">佛教</span>
+        <span class="key">科学类别:</span><span class="value">XXX</span>
       </div>
       <div class="xin">
         <span class="key">数据类型:</span><span class="value">成果</span>

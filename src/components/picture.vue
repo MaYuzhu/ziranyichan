@@ -5,10 +5,10 @@
       <span id="next" class="btn next"></span>
       <div id="picBox" class="picBox">
         <ul class="cf">
-          <li> <a href="javascript:;"><img src="../../static/images/huangshan1.gif" alt=""></a></li>
-          <li> <a href="javascript:;"><img src="../../static/images/huangshan2.jpg" alt=""></a></li>
-          <li> <a href="javascript:;"><img src="../../static/images/huangshan3.jpg" alt=""></a></li>
-          <li> <a href="javascript:;"><img src="../../static/images/huangshan4.jpg" alt=""></a></li>
+          <li> <a href="javascript:;"><img src="../../static/images/huangshan01.jpg" alt=""></a></li>
+          <li> <a href="javascript:;"><img src="../../static/images/huangshan02.jpg" alt=""></a></li>
+          <li> <a href="javascript:;"><img src="../../static/images/huangshan03.jpg" alt=""></a></li>
+          <li> <a href="javascript:;"><img src="../../static/images/huangshan04.jpg" alt=""></a></li>
           <!--<li> <a href="javascript:;"><img src="../../static/images/83293300.jpg" alt=""></a></li>
           <li> <a href="javascript:;"><img src="../../static/images/83293339.jpg" alt=""></a></li>
           <li> <a href="javascript:;"><img src="../../static/images/83293353.jpg" alt=""></a></li>
@@ -24,10 +24,10 @@
       <div class="listBox_wrap">
         <div id="listBox" class="listBox">
           <ul class="cf">
-            <li class="on"><img src="../../static/images/huangshan1.gif" alt=""></li>
-            <li><img src="../../static/images/huangshan2.jpg" alt=""></li>
-            <li><img src="../../static/images/huangshan3.jpg" alt=""></li>
-            <li><img src="../../static/images/huangshan4.jpg" alt=""></li>
+            <li class="on"><img src="../../static/images/huangshan01.jpg" alt=""></li>
+            <li><img src="../../static/images/huangshan02.jpg" alt=""></li>
+            <li><img src="../../static/images/huangshan03.jpg" alt=""></li>
+            <li><img src="../../static/images/huangshan04.jpg" alt=""></li>
             <!--<li><img src="../../static/images/83293783.jpg" alt=""></li>
             <li><img src="../../static/images/83293793.jpg" alt=""></li>
             <li><img src="../../static/images/83293794.jpg" alt=""></li>

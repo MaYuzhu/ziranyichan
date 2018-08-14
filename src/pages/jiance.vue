@@ -5,23 +5,44 @@
       <div class="left_belt">
         <p><router-link to="/">首页</router-link> > 监测保护</p>
         <div>
-          <p>数据分类</p>
-          <ul>
-            <li @click="current(0)" :class="{on:curr==0}">影像管理</li>
-            <li @click="current(1)" :class="{on:curr==1}">银山塔林</li>
-
+          <ul id="accordion" class="accordion">
+            <li @click="childClick()">
+              <div class="link">&nbsp; &nbsp;遥感监测<i class="iconfont icon-sanjiao"></i></div>
+              <ul class="submenu">
+                <li :class="{on:curr==0}" @click="childClick1(0)">
+                  <a href="javascript:;">影像管理</a>
+                </li>
+                <li :class="{on:curr==1}" @click="childClick1(1)">
+                  <a href="javascript:;">智能识别</a>
+                </li>
+                <li :class="{on:curr==2}" @click="childClick1(2)">
+                  <a href="javascript:;">模型分析</a>
+                </li>
+              </ul>
+            </li>
+            <li @click="childClick()">
+              <div class="link">
+                <a style="display:inline-block;width: 100%;height: 100%;"
+                  href="http://36.110.66.217:3000/monitor-data" target="view_window">物联网监测</a>
+              </div>
+              <ul class="submenu"></ul>
+            </li>
+            <li @click="childClick()">
+              <div class="link">测量监测</div>
+              <ul class="submenu"></ul>
+            </li>
           </ul>
           <img src="../../static/image/show_v/bg2.png" alt="">
         </div>
       </div>
       <div class="right_belt">
-        <p></p>
+        <p v-if="curr==1">智能识别</p>
         <div>
-          <p v-if="curr==0">影像管理</p>
           <div v-if="curr==1">
             <div class="yinshan">
-              <iframe src="http://192.168.10.7:3000/monitor-data"
+              <iframe src="http://36.110.66.204:9000/terrain-context/2"
                       id="myiframe" scrolling="yes" frameborder="0"></iframe>
+              <!--//36.110.66.217:3000银山塔林-->
             </div>
           </div>
         </div>
@@ -36,17 +57,48 @@
   export default {
     data(){
       return{
-        curr:1
+        //diming:['遥感监测','物联网监测','测量监测'],
+        //diList:['图片','动画','遥感影像','4D产品','三维模型','智能识别','模型分析'],
+        curr:-1,
+        childValue: {},
+        childValue1: '',
       }
     },
     components:{
       Header,
     },
     methods:{
-      current(x){
-        this.curr = x
+      childClick (item) {
+        console.log(item)
+      },
+      childClick1 (item) {
+        this.curr = item
       },
     },
+    mounted(){
+      var Accordion = function(el, multiple) {
+        this.el = el || {};
+        this.multiple = multiple || false;
+
+        // Variables privadas
+        var links = this.el.find('.link');
+        // Evento
+        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown)
+      }
+      Accordion.prototype.dropdown = function(e) {
+
+        var $el = e.data.el;
+        var $this = $(this), $next = $this.next();
+
+        $next.slideToggle();
+        $this.parent().toggleClass('open');
+
+        if (!e.data.multiple) {
+          $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+        };
+      }
+      var accordion = new Accordion($('#accordion'), false);
+    }
   }
 </script>
 
@@ -71,35 +123,61 @@
         height 522px
         background #e5e5e5
         position relative
-        >p
-          width 100%
-          height 50px
-          background #3381c5
-          color #fff
-          font-size 16px
-          text-align center
-          line-height 50px
-          box-shadow 0px 2px 5px 1px #bbb
-        >ul
-          padding-top 8px
-          li
-            width 100%
-            height 40px
-            background #e5e5e5
-            color #666
-            font-size 14px
-            text-align center
-            line-height 40px
-            cursor pointer
-          .on
-            background #4797de
-            color #fff
         >img
           width 100%
           position absolute
           bottom 0
+        .accordion
+          width 100%
+          margin 0px auto 20px
+          background #dbdbdb
+          .link
+            cursor: pointer
+            display: block
+            color: #4D4D4D
+            font-size: 14px
+            font-weight: 500
+            border-bottom: 1px solid #CCC
+            position: relative
+            -webkit-transition: all 0.4s ease;
+            -o-transition: all 0.4s ease;
+            transition: all 0.4s ease;
+            text-align center
+            height 34px
+            background #dbdbdb
+            line-height 34px
+            letter-spacing 2px
+            i
+              color #979797
+          >li:last-child .link
+            border-bottom 0
+          >li.open .link
+            background #4797de
+            color #fff
+            i
+              color #fff
+          .submenu
+            display none
+            background #e5e5e5
+            font-size 14px
+            li
+              border-bottom: 1px solid #e0e0e0
+              a
+                display: block;
+                text-decoration: none;
+                color: #666
+                padding 8px
+                text-align center
+                -webkit-transition: all 0.25s ease;
+                -o-transition: all 0.25s ease;
+                transition: all 0.25s ease;
+              a:hover
+                color #4797de
+            .on
+              a
+                color #4797de
 
-    .right_belt
+  .right_belt
       width 77%
       >p
         height 40px

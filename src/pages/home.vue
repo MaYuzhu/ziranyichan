@@ -18,15 +18,15 @@
       </div>
       <div class="center">
          <div class="shang">
-           <div class="wrap_img">
+           <div @mouseover="tab1()"  @mouseout="out()" class="wrap_img">
              <div :class="{active2:on==1}" id="ziranyichan">
-               <!--<img src="../../static/image/home/AAA.png" alt="">-->
+               <img src="../../static/image/home/lunbo2.jpg" alt="">
              </div>
              <div :class="{active2:on==2}">
-               <img src="../../static/image/home/CCC.png" alt="">
+               <img src="../../static/image/home/lunbo3.jpg" alt="">
              </div>
              <div :class="{active2:on==0}">
-               <img src="../../static/image/home/BBB.png" alt="">
+               <img src="../../static/image/home/lunbo1.jpg" alt="">
              </div>
            </div>
            <ul @mouseout="out()">
@@ -99,6 +99,9 @@
           this.on = x
           clearInterval(this.timer)
         },
+        tab1(){
+          clearInterval(this.timer)
+        },
         out(){
           let a = 0
           this.timer = setInterval(()=>{
@@ -121,7 +124,7 @@
         //地图
         var map, tileLayer;
 
-        G.ready(function() {
+        /*G.ready(function() {
 
           map = new G.Map('ziranyichan', {
 
@@ -145,9 +148,9 @@
             cluster: ['a', 'b', 'c']
           });
           tileLayer.addTo(map);
-        });
+        });*/
 
-        function zoomIn(){
+        /*function zoomIn(){
           if(map){
             map.zoomIn();
           }
@@ -157,7 +160,7 @@
           if(map){
             map.zoomOut();
           }
-        }
+        }*/
       },
       components:{
         Header,
@@ -225,6 +228,7 @@
             width 100%
             height 100%
             overflow hidden
+            cursor pointer
             div
               position absolute
               top 0

@@ -86,8 +86,8 @@
       let scroll = document.querySelector('.scroll');
       let scrollin = document.querySelector('.scrollin');
       let text = document.querySelector('.gundong');
-      let scale1 = 414/text.offsetHeight;
-      scrollin.style.height = scale1*414 +'px';
+      let scale1 = 476/text.offsetHeight;
+      scrollin.style.height = scale1*476 +'px';
       scrollin.onmousedown = function(event){
         let eleTop = scrollin.offsetTop;
         let mouseS = event.clientY;
@@ -140,8 +140,8 @@
 
         if(scrollinTop<0){
           scrollinTop=0;
-        }else if(scrollinTop>414-scrollin.offsetHeight){
-          scrollinTop=414-scrollin.offsetHeight;
+        }else if(scrollinTop>476-scrollin.offsetHeight){
+          scrollinTop=476-scrollin.offsetHeight;
         };
 
         switch(flag){
@@ -165,7 +165,7 @@
 <style lang="stylus" scoped>
   .wrap_ziran
     position relative
-    height 414px
+    height 476px
     overflow hidden
     margin-top 14px
     .gundong
