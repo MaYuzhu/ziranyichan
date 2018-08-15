@@ -37,13 +37,16 @@
                 <Info></Info>
               </div>
               <div id="yao" v-if="item1=='遥感影像'">
-                <Yaogan></Yaogan>
+                <div>
+                  <iframe src="https://geohey.com/apps/dataviz/c465ff19bf7c4ed6be6b81d0eeed00f1/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc"
+                          id="myiframe_yao1" scrolling="yes" frameborder="0"></iframe>
+                  <iframe src="https://geohey.com/apps/dataviz/27f91832a3a0429d9b6afe0b067b5c8c/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc"
+                          id="myiframe_yao2" scrolling="yes" frameborder="0"></iframe>
+                </div>
+
                 <Info></Info>
               </div>
-              <div v-if="item1=='智能识别'">
-                <iframe src="http://36.110.66.204:9000/terrain-context/2"
-                        id="myiframe" scrolling="yes" frameborder="0"></iframe>
-              </div>
+
             </div>
           </div>
           <div class="right_content3" v-show="isChang('./jiaohu')">
@@ -154,6 +157,16 @@
           #myiframe,#myiframe_wen
             width 100%
             height 522px
+            margin-bottom 10px
+          #yao
+            >:nth-child(1)
+              display flex
+              flex-wrap wrap
+              margin-bottom 10px
+              #myiframe_yao1,#myiframe_yao2
+                width 50%
+                height 260px
+
       .right_content2
         position relative
         .fen

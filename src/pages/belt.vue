@@ -65,7 +65,8 @@
           </div>
         </div>
         <div v-if="curr==5">
-          <img src="../../static/image/belt/big.gif" alt="">
+          <iframe src="https://geohey.com/apps/dataviz/433214bb0d8c47a9854a5c5eb3db41d5/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+                  id="myiframe5" scrolling="yes" frameborder="0"></iframe>
         </div>
       </div>
     </div>
@@ -158,7 +159,7 @@
         height 40px
         line-height 40px
         font-size 16px
-      #myiframe0,#myiframe1,#myiframe2,#myiframe3
+      #myiframe0,#myiframe1,#myiframe2,#myiframe3,#myiframe5
         width 100%
         height 512px
       >div

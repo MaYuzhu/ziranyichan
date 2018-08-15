@@ -74,9 +74,9 @@
     },
     computed:{
     	a:function () {
-        let arr = ['Austrilia , XXXX']
+        let arr = ['Australia , XXXX']
         for(let i=0;i<20;i++){
-        	arr.push('Austrilia , XXXX')
+        	arr.push('Australia , XXXX')
         }
         return arr
       }

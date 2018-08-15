@@ -37,13 +37,20 @@
                 <Info></Info>
               </div>
               <div id="yao" v-if="item1=='遥感影像'">
-                <Yaogan></Yaogan>
+                <div>
+                  <iframe src="https://geohey.com/apps/dataviz/47368537501f49d481dd24e8a1b214a6/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc"
+                          id="myiframe_yao1" scrolling="yes" frameborder="0"></iframe>
+                  <iframe src="https://geohey.com/apps/dataviz/345e50cf240648a6897d17f9b579c0f6/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc"
+                          id="myiframe_yao2" scrolling="yes" frameborder="0"></iframe>
+                  <iframe src="https://geohey.com/apps/dataviz/2d74e307794a47c387336d6ebbabfb83/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc"
+                          id="myiframe_yao3" scrolling="yes" frameborder="0"></iframe>
+                  <iframe src=" https://geohey.com/apps/dataviz/102c6d642e024aa5a84a5f9a1a77b0fb/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc"
+                          id="myiframe_yao4" scrolling="yes" frameborder="0"></iframe>
+                </div>
+
                 <Info></Info>
               </div>
-              <div v-if="item1=='智能识别'">
-                <iframe src="http://36.110.66.204:9000/terrain-context/2"
-                        id="myiframe" scrolling="yes" frameborder="0"></iframe>
-              </div>
+
             </div>
           </div>
           <div class="right_content3" v-show="isChang('./jiaohu')">
@@ -154,6 +161,17 @@
           #myiframe,#myiframe_zi
             width 100%
             height 522px
+            margin-bottom 10px
+          #yao
+            >:nth-child(1)
+              display flex
+              flex-wrap wrap
+              margin-bottom 10px
+              #myiframe_yao1,#myiframe_yao2,#myiframe_yao3,#myiframe_yao4
+                width 50%
+                height 260px
+
+
       .right_content2
         position relative
         .fen

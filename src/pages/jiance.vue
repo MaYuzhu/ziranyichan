@@ -20,14 +20,13 @@
                 </li>
               </ul>
             </li>
-            <li @click="childClick()">
+            <li @click="childClick1(4)">
               <div class="link">
-                <a style="display:inline-block;width: 100%;height: 100%;"
-                  href="http://36.110.66.217:3000/monitor-data" target="view_window">物联网监测</a>
+                物联网监测
               </div>
               <ul class="submenu"></ul>
             </li>
-            <li @click="childClick()">
+            <li @click="childClick1(5)">
               <div class="link">测量监测</div>
               <ul class="submenu"></ul>
             </li>
@@ -37,14 +36,24 @@
       </div>
       <div class="right_belt">
         <p v-if="curr==1">智能识别</p>
-        <div>
-          <div v-if="curr==1">
+        <div v-if="curr==1">
+          <div>
             <div class="yinshan">
               <iframe src="http://36.110.66.204:9000/terrain-context/2"
                       id="myiframe" scrolling="yes" frameborder="0"></iframe>
               <!--//36.110.66.217:3000银山塔林-->
             </div>
           </div>
+        </div>
+        <p v-if="curr==4">物联网监测案例</p>
+        <div v-if="curr==4">
+          <a style="display:inline-block;width: 100%;font-size:16px"
+             href="http://36.110.66.217:3000/monitor-data" target="view_window">银山塔林</a>
+        </div>
+        <p v-if="curr==0">影像管理</p>
+        <div v-if="curr==0">
+          <a style="display:inline-block;width: 100%;font-size:16px"
+             href="http://localhost:8090/#/grid_image" target="view_window">影像管理</a>
         </div>
       </div>
     </div>
@@ -249,4 +258,7 @@
         #myiframe
           width 100%
           height 100%
+      a
+        &:hover
+          color #0086b3
 </style>
