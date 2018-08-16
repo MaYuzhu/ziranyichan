@@ -1,8 +1,8 @@
 <template>
   <div class="zhuanti_wrap">
     <ul id="accordion" class="accordion">
-      <li v-for="(item,index) in diming" :key="index"  @click="childClick(item,index)">
-        <div class="link">{{item}}<i class="iconfont icon-sanjiao"></i></div>
+      <li v-for="(item,index) in diming" :key="index">
+        <div class="link"  @click="childClick(item,index)">{{item}}<i class="iconfont icon-sanjiao"></i></div>
         <ul class="submenu">
           <li v-for="(item1,index) in diList" :key="index"
               :class="{on:curr==index}"
@@ -32,15 +32,25 @@
       methods:{
         childClick (item,index) {
           if($('#accordion>li')[index].classList.contains('open')){
-            this.childValue.type = item
-            this.childValue.curr = '0'
-          }else {
             this.childValue.type = '专题'
-
+            this.childValue.curr = '0'
+            this.curr = -1
+          }else {
+            this.childValue.type = item
+            this.childValue.curr = index + 1
+          }
+          //所有折叠项的2级为灰
+          var $li = $('#accordion>li')
+          for(let i=0;i<$li.length;i++){
+            if(!$li[i].classList.contains('open')){
+              let $lis = $('.accordion>li>ul>li')
+                for(let j=0;j<$lis.length;j++){
+                  $lis[j].classList.remove('on')
+                }
+            }
           }
           // childByValue是在父组件on监听的方法
           // 第二个参数this.childValue是需要传的值
-
           this.$emit('childByValue', this.childValue)
         },
         childClick1 (item,index) {
@@ -76,6 +86,7 @@
           };
         }
         var accordion = new Accordion($('#accordion'), false);
+
       }
     }
 </script>

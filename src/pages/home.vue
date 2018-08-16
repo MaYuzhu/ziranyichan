@@ -19,22 +19,22 @@
       <div class="center">
          <div class="shang">
            <div @mouseover="tab1()"  @mouseout="out()" class="wrap_img">
-             <div :class="{active2:on==1}" id="ziranyichan">
+             <div :class="{active2:on==1}" @click="goto('/chengguowenhua')">
                <img src="../../static/image/home/lunbo2.jpg" alt="">
              </div>
-             <div :class="{active2:on==2}">
+             <div :class="{active2:on==2}" @click="goto('/belt')">
                <img src="../../static/image/home/lunbo3.jpg" alt="">
              </div>
-             <div :class="{active2:on==0}">
+             <div :class="{active2:on==0}" @click="goto('/chengguoziran')">
                <img src="../../static/image/home/lunbo1.jpg" alt="">
              </div>
            </div>
            <ul @mouseout="out()">
              <li @mouseover="tab(0)" :class="{active:on==0}">
-               <router-link to="/chengguoziran/ziran">自然遗产分布</router-link>
+               <router-link to="/chengguoziran">自然遗产分布</router-link>
              </li>
              <li @mouseover="tab(1)" :class="{active:on==1}">
-               <router-link to="/chengguowenhua/ziran">文化遗产分布</router-link>
+               <router-link to="/chengguowenhua">文化遗产分布</router-link>
              </li>
              <li @mouseover="tab(2)" :class="{active:on==2}">
                <router-link to="/belt">一带一路地图</router-link></li>

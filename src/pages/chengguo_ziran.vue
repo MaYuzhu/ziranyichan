@@ -28,15 +28,17 @@
             </div>
           </div>
           <div class="right_content2" v-show="isChang('./zhuanti')">
-            <p class="title_zhuan">{{item}}</p>
+            <p class="title_zhuan">{{title_z}}</p>
             <Fenxiang class="fen"></Fenxiang>
             <div class="right_big_img">
-              <img v-if="item1=='0'" src="../../static/image/chengguo/zhuanti1.jpg" alt="">
-              <div id="picture" v-if="item1=='图片'">
+              <img v-if="item=='0'" src="../../static/image/chengguo/zhuanti1.jpg" alt="">
+              <img v-if="item=='1'" src="../../static/images/huang00.jpg" alt="">
+              <img v-if="item=='2'" src="../../static/images/shennong00.jpg" alt="">
+              <div id="picture" v-if="item=='图片'">
                 <Picture></Picture>
                 <Info></Info>
               </div>
-              <div id="yao" v-if="item1=='遥感影像'">
+              <div id="yao" v-if="item=='遥感影像'">
                 <div>
                   <iframe src="https://geohey.com/apps/dataviz/47368537501f49d481dd24e8a1b214a6/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc"
                           id="myiframe_yao1" scrolling="yes" frameborder="0"></iframe>
@@ -85,12 +87,14 @@
       return{
         on:0,
         on1:0,
-        item:'专题',
-        item1:'0'
+        title_z:'专题',
+        item:'0'
       }
     },
     methods:{
       goto(path){
+        this.title_z = '专题'
+        this.item = '0'
         this.$router.push(path)
       },
       isChang(path){
@@ -98,12 +102,17 @@
       },
       childByValue: function (childValue) {
         // childValue就是子组件传过来的值
-        this.item = childValue.type
-        //this.item1 = childValue.curr
+        if(childValue.type!=='专题'){
+          this.item =  childValue.curr + ''
+        }else {
+          this.item = '0'
+        }
+        this.title_z = childValue.type
+
       },
       childByValue1: function (childValue) {
         // childValue就是子组件传过来的值
-        this.item1 = childValue
+        this.item = childValue
         //console.log(this.item1)
       }
     },
@@ -158,6 +167,8 @@
           font-size 16px
         .right_big_img
           width 760px
+          img
+            width 100%
           #myiframe,#myiframe_zi
             width 100%
             height 522px

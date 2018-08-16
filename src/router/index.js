@@ -54,7 +54,7 @@ export default new Router({
         },
         {
           path: '',
-          redirect: '/chengguoziran'
+          redirect: '/chengguoziran/ziran'
         },
       ],
     },
@@ -79,7 +79,7 @@ export default new Router({
         },
         {
           path: '',
-          redirect: '/chengguowenhua'
+          redirect: '/chengguowenhua/ziran'
         },
       ],
     },

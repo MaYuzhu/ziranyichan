@@ -5,8 +5,8 @@
       <div class="title">
         <img src="../../static/image/home/logo1.png" alt="">
         <div>
-          <p>文化与自然遗产监测保护服务平台</p>
-          <p>Cultural and natural heritage monitoring and protection service platform</p>
+          <p>自然与文化遗产监测保护服务平台</p>
+          <p>Natural and cultural heritage monitoring and protection service platform</p>
         </div>
       </div>
       <p>用户登录</p>
