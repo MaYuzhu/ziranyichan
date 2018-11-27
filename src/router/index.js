@@ -16,7 +16,10 @@ import Jiaohu from '../pages/chengguo_ziran2ji/jiaohu.vue'
 import Wenhua from '../pages/chengguo_wenhua2ji/ziranyichan.vue'
 import WenZhuanti from '../pages/chengguo_wenhua2ji/zhuantishuju.vue'
 import WenJiaohu from '../pages/chengguo_wenhua2ji/jiaohu.vue'
-
+/*首页-图片点击*/
+import PictureLink from '../pages/picture_link'
+/*数据管理*/
+import DataManagement from '../pages/data_management'
 
 Vue.use(Router)
 
@@ -95,5 +98,13 @@ export default new Router({
       path: '/jiance',
       component: Jiance,
     },
+    {
+      path: '/picture_link',
+      component: PictureLink,
+    },
+    {
+      path: '/data_management',
+        component: DataManagement,
+    }
   ]
 })

@@ -3,9 +3,9 @@
     <header>
       <Lang style="position:relative;z-index: 10"></Lang>
       <div class="title">
-        <img src="../../static/image/home/logo1.png" alt="">
+        <img src="../../static/image/home/logo1.jpg" alt="">
         <div>
-          <p>自然与文化遗产监测保护服务平台</p>
+          <p>自然-文化遗产监测与评估信息服务系统</p>
           <p>Natural and cultural heritage monitoring and protection service platform</p>
         </div>
       </div>
@@ -42,14 +42,15 @@
       .title
         position relative
         z-index 0
-        margin-left 32px
+        margin-left 2px
         >img
-          height 104px
-          margin-top -18px
+          width 170px
+          height 74px
+          margin-top -2px
         >div
           position absolute
           top 10px
-          left 144px
+          left 170px
           >:nth-child(1)
             font-size 26px
             font-family "Microsoft YaHei"

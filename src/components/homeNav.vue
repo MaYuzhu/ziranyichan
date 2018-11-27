@@ -1,12 +1,13 @@
 <template>
   <div style="position:relative">
     <ul>
-      <li @click="goto('/home')" :class="{active:isChang('/home')}"><a href="javascript:;">关于HIST</a></li>
+      <li @click="goto('/home')" :class="{active:isChang('/home')}"><a href="javascript:;">关于我们</a></li>
       <li><a href="javascript:;">活动</a></li>
-      <li click="goto('/chengguo')" :class="{active:isChang('/chengguo')}"><a href="javascript:;">成果</a></li>
+      <li click="goto('/chengguo')" :class="{active:isChang('/chengguoziran')}"><a href="javascript:;">成果</a></li>
       <li><a href="javascript:;">伙伴</a></li>
       <li><a href="javascript:;">资源</a></li>
       <li><a href="javascript:;">互动</a></li>
+      <li @click="goto('/data_management')"  :class="{active:isChang('/data_management')}"><a href="javascript:;">数据管理</a></li>
     </ul>
     <div class="sou">
       <input type="text">

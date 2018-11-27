@@ -6,18 +6,49 @@
         <div class="shang">
           <ul>
             <li class="on">新闻</li>
-            <li>公告</li>
-            <li>图片</li>
+            <li>
+              <router-link to="/picture_link">
+                图片
+              </router-link>
+            </li>
             <li>视频</li>
+            <li>会员信息</li>
+            <li>友情链接</li>
           </ul>
         </div>
         <div class="xia">
-          <p>科普宣传</p>
-          <img src="../../static/image/home/leftbottom.png" alt="">
+          <p>友情链接</p>
+          <div class="friend_link_wrap">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
         </div>
       </div>
       <div class="center">
-         <div class="shang">
+        <div class="xia">
+          <div @click="goto('/jiance')">
+            <p>监测保护</p>
+            <div class="zhe zhe1"></div>
+          </div>
+          <div>
+            <p>评估预警</p>
+            <div class="zhe zhe2"></div>
+          </div>
+          <div>
+            <p>决策支持</p>
+            <div class="zhe zhe3"></div>
+          </div>
+          <div @click="goto('/show_v')">
+            <p>可视化展示</p>
+            <div class="zhe zhe4"></div>
+          </div>
+        </div>
+        <div class="shang">
            <div @mouseover="tab1()"  @mouseout="out()" class="wrap_img">
              <div :class="{active2:on==1}" @click="goto('/chengguowenhua')">
                <img src="../../static/image/home/lunbo2.jpg" alt="">
@@ -40,45 +71,63 @@
                <router-link to="/belt">一带一路地图</router-link></li>
            </ul>
          </div>
-        <div class="xia">
-          <div @click="goto('/jiance')">
-            <p>监测保护</p>
-            <div class="zhe zhe1"></div>
-          </div>
-          <div>
-            <p>评估预警</p>
-            <div class="zhe zhe2"></div>
-          </div>
-          <div>
-            <p>决策支持</p>
-            <div class="zhe zhe3"></div>
-          </div>
-          <div @click="goto('/show_v')">
-            <p>可视化展示</p>
-            <div class="zhe zhe4"></div>
-          </div>
-        </div>
+
       </div>
       <div class="right">
-        <div class="shang">
-          <div class="huiyuan">
-            <p>会员信息</p>
+        <div class="right_content">
+          <p>公告</p>
+          <div class="notice_btn">
+            <div>会议论坛</div>
+            <div>授牌认证</div>
+            <div>群组动态</div>
           </div>
-          <div class="wangzhan">
-            <p>网站链接</p>
-            <div>
-              <img src="../../static/image/home/wangzhan01.gif" alt="">
-              <img src="../../static/image/home/wangzhan02.gif" alt="">
-              <img src="../../static/image/home/wangzhan03.gif" alt="">
-              <img src="../../static/image/home/wangzhan04.gif" alt="">
-            </div>
+          <div>
+            <p>“一带一路”遥感考古
+              新闻发布会
+              在突尼斯召开</p>
+            <p>2018年4月19日，“一带一路”遥感考古新闻发布会在突尼斯国首都突尼斯市召开。</p>
+            <p>2018年4月19日，“一带一路”遥感考古新闻发布会在突尼斯国首都突尼斯市召开。</p>
           </div>
         </div>
-        <div class="xia">
-          <p>智慧旅游</p>
+
+      </div>
+    </div>
+    <div class="bottom_home">
+      <div>
+        <p><span>新闻</span><a href="javascript:;">更多>> </a></p>
+        <div>
+          <p>2018-11-12</p>
+          <p>刚果共和国林业部部长罗莎莉·马东多接见了其本国21名学生，并与其合影留念。</p>
+          <p>2018-11-20</p>
+          <p>“一带一路”倡议提出以来，围绕这一主题举办的中外青年文化交流活动异彩纷呈。</p>
+        </div>
+      </div>
+      <div>
+        <p><span>图片</span><a href="javascript:;">更多>> </a></p>
+        <div>
+          <img src="../../static/image/home/bottom_ditu.png" alt="">
+        </div>
+      </div>
+      <div>
+        <p><span>视频</span><a href="javascript:;">更多>> </a></p>
+        <img src="../../static/image/home/bottom_konglong.jpg" alt="">
+      </div>
+      <div>
+        <p><span>科普宣传</span><a href="javascript:;">更多>> </a></p>
+        <div>
+          <span>保护行动</span>
+          <img src="../../static/image/home/leftbottom.png" alt="">
+        </div>
+      </div>
+      <div>
+        <p><span>智慧旅游</span><a href="javascript:;">更多>> </a></p>
+        <div>
+          <span>景区导航</span>
           <img src="../../static/image/home/rightbottom.png" alt="">
         </div>
       </div>
+
+
     </div>
   </div>
 </template>
@@ -177,51 +226,92 @@
       display flex
       .left,.right
         width 160px
-        height 475px
+        height 478px
+        padding-top 6px
+        box-sizing border-box
         .shang
-          width 85%
-          height 292px
-          margin 10px auto 0
+          width 95%
+          height 248px
+          margin 0 auto
           background #e5e5e5
           box-shadow 0 0 10px 1px #ddd
         .xia
-          width 85%
-          height 134px
-          margin 10px auto 0
-          img
-            width 100%
-            height 120px
+          width 95%
+          height 224px
+          background #e5e5e5
+          margin 0 auto
+          padding 2px 20px 5px
+          box-sizing border-box
+          >p
+            margin-bottom 5px
+            color #999
+          .friend_link_wrap
+            display flex
+            flex-wrap wrap
+            justify-content space-between
+            div
+              width 45px
+              height 45px
+              background lightblue
+              margin-bottom 20px
+              background url("../../static/image/home/friend_link.gif") no-repeat
+            :nth-child(1)
+              background-position -8px -6px
+            :nth-child(2)
+              background-position -64px -6px
+            :nth-child(3)
+              background-position -8px -76px
+            :nth-child(4)
+              background-position -64px -76px
+            :nth-child(5)
+              background-position -8px -146px
+            :nth-child(6)
+              background-position -64px -146px
+
       .left
         .shang
           ul
             li
-              height 30px
-              line-height 30px
+              height 45px
+              line-height 45px
               font-size 15px
               text-align center
+              border-bottom 1px #aaa dashed
             .on
               background #4797de
               color white
       .right
-        .shang
-          .huiyuan,.wangzhan
-            height 50%
-            p
-              text-align center
-              font-size 14px
-              transform translate(0,8px)
-          .wangzhan
-            background #fff
+        .right_content
+          height 472px
+          background #e5e5e5
+          margin 0 4px
+          >p
+            height 52px
+            font-size 18px
+            line-height 48px
+            text-align center
+          .notice_btn
+            display flex
+            justify-content space-around
             >div
-              transform translate(13px,11px)
-              img
-                margin 8px
+              width 42px
+              height 38px
+              background #c5d7df
+              padding 6px 8px
+              box-sizing border-box
+              border-radius 5px
+          >div
+            padding 5px
+            >p
+              color #000057
+              margin-bottom 20px
       .center
         width 680px
         height 475px
+        padding-top 6px
         .shang
           width 100%
-          height 302px
+          height 376px
           position relative
           .wrap_img
             position absolute
@@ -240,7 +330,9 @@
               opacity 0
               img
                 width 100%
-                height 100%
+                position absolute
+                top 50%
+                transform translate(0,-50%)
             .active2
               visibility visible
               opacity 1
@@ -257,29 +349,29 @@
             z-index 20
             li
               width 33.333%
-              background rgba(3,187,222,.9)
+              background rgba(3,187,222,.6)
               line-height 40px
               text-align center
               cursor pointer
               a
                 color #fff
             .active
-              background rgba(0,212,250,.9)
+              background rgba(0,212,250,.7)
         .xia
           width 100%
-          height 134px
-          margin 10px auto 0
+          margin 0 auto 6px
           display flex
           justify-content space-between
           div
             cursor pointer
             width 24%
+            height 90px
             position relative
             &:hover
               .zhe
-                opacity 0.8
+                opacity 0.9
               p
-                top 62px
+                top 35px
             >.zhe
               position absolute
               top 0
@@ -287,7 +379,7 @@
               width 100%
               height 100%
               transition 0.5s
-              opacity 0.4
+              opacity 0.6
             >.zhe1
               background rgb(3, 187, 222)
             >.zhe2
@@ -298,7 +390,7 @@
               background rgb(0, 160, 219)
             >p
               position absolute
-              top 90px
+              top 60px
               color #ffffff
               width 100%
               text-align center
@@ -308,14 +400,43 @@
 
           >:nth-child(1)
             background url("../../static/image/home/bottom01.png") center no-repeat
-            background-size  auto 100%
+            background-size  auto 110%
           >:nth-child(2)
             background url("../../static/image/home/bottom02.png") center no-repeat
-            background-size  auto 100%
+            background-size  auto 130%
           >:nth-child(3)
             background url("../../static/image/home/bottom03.png") center no-repeat
-            background-size  auto 100%
+            background-size  auto 130%
           >:nth-child(4)
             background url("../../static/image/home/bottom04.png") center no-repeat
-            background-size  auto 100%
+            background-size  auto 130%
+    .bottom_home
+      display flex
+      justify-content space-between
+      margin 20px 0
+      padding 0 4px
+      >div
+        width 184px
+        height 178px
+        background #e5e5e5
+        overflow hidden
+        >p
+          height 36px
+          line-height 39px
+          display flex
+          justify-content space-between
+          padding 0 8px
+        >div
+          position relative
+          >p
+            margin 8px 10px
+          >img
+            width 184px
+            height 142px
+          >span
+            position absolute
+            color #f0f0f0
+            background #caa10f
+            padding 6px 4px
+
 </style>
