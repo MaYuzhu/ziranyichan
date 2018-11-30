@@ -48,7 +48,7 @@
         <p v-if="curr==4">物联网监测案例</p>
         <div v-if="curr==4">
           <a style="display:inline-block;width: 100%;font-size:16px"
-             href="http://36.110.66.217:3000/monitor-data" target="view_window">银山塔林</a>
+             href="http://36.110.66.217:3001/monitor-data" target="view_window">银山塔林</a>
         </div>
         <p v-if="curr==0">影像管理</p>
         <div v-if="curr==0">

@@ -20,6 +20,10 @@ import WenJiaohu from '../pages/chengguo_wenhua2ji/jiaohu.vue'
 import PictureLink from '../pages/picture_link'
 /*数据管理*/
 import DataManagement from '../pages/data_management'
+import DataUpload from '../pages/data_management_level2/data_upload'
+import DataTable from '../pages/data_management_level2/data_table'
+import DataFile from '../pages/data_management_level2/data_file'
+
 
 Vue.use(Router)
 
@@ -104,7 +108,25 @@ export default new Router({
     },
     {
       path: '/data_management',
-        component: DataManagement,
+      component: DataManagement,
+      children:[
+        {
+          path: 'data_upload',
+          component: DataUpload
+        },
+        {
+          path: 'data_table',
+          component: DataTable
+        },
+        {
+          path: 'data_file',
+          component: DataFile
+        },
+        {
+          path: '',
+          redirect: '/data_management/data_file'
+        },
+      ],
     }
   ]
 })

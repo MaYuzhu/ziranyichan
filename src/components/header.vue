@@ -9,7 +9,7 @@
           <p>Natural and cultural heritage monitoring and protection service platform</p>
         </div>
       </div>
-      <p>用户登录</p>
+      <p>admin已登录</p>
     </header>
     <div class="nav">
       <Nav></Nav>
@@ -62,12 +62,10 @@
             font-family "Microsoft YaHei"
             color rgb( 0, 92, 161 )
             font-weight 400
-
-
-
       >p
-        width 80px
+        /*width 80px*/
         height 34px
+        padding 0 8px
         background #ef9a2f
         position absolute
         top 0

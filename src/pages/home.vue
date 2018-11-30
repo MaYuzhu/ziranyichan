@@ -7,7 +7,7 @@
           <ul>
             <li class="on">新闻</li>
             <li>
-              <router-link to="/picture_link">
+              <router-link style="display:block;width:100%;height:100%;" to="/picture_link">
                 图片
               </router-link>
             </li>
