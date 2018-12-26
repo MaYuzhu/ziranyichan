@@ -56,14 +56,14 @@
       data(){
         return{
           dataTable:[],
-          url:'http://192.168.20.15:8080',
+          url:'http://192.168.20.18:8080',
           type:''
         }
       },
       mounted(){
         const vm = this
         $(function () {
-          const url = 'http://192.168.20.15:8080'
+          const url = 'http://192.168.20.18:8080'
           /*//tab切换
           var $tab = $('.left ul>li')
           $tab.on('click',(function() {

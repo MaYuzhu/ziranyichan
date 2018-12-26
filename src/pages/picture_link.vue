@@ -42,7 +42,7 @@
 </template>
 
 <script>
-  const url = 'http://192.168.20.15:8080'
+  const url = 'http://192.168.20.18:8080'
   import Header from '../components/header'
   export default {
     name: "picture_link",
