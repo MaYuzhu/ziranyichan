@@ -13,6 +13,7 @@
             <li @click="current(3)" :class="{on:curr==3}">天文地质</li>
             <li @click="current(4)" :class="{on:curr==4}">科研交流</li>
             <li @click="current(5)" :class="{on:curr==5}">历史变迁</li>
+            <li @click="current(6)" :class="{on:curr==6}">专题数据</li>
           </ul>
           <img src="../../static/image/show_v/bg2.png" alt="">
         </div>
@@ -46,18 +47,18 @@
           </div>
         </div>
         <div v-if="curr==0">
-          <div class="bing" @click="child1(6)">
+          <div class="bing" @click="child1(60)">
             <p>兵马俑</p>
           </div>
-          <div class="jin" @click="child1(7)">
+          <div class="jin" @click="child1(70)">
             <p>金字塔</p>
           </div>
         </div>
-        <div class="bing_p" v-if="curr==6">
+        <div class="bing_p" v-if="curr==60">
           <img style="width:100%" src="../../static/image/show_v/bing.jpg" alt="">
           <p>《兵马俑》1961年3月4日，秦始皇陵被国务院公布为第一批全国重点文物保护单位 。1974年3月，兵马俑被发现；1987年，秦始皇陵及兵马俑坑被联合国教科文组织批准列入《世界遗产名录》，并被誉为“世界第八大奇迹” 。先后已有200多位国家领导人参观访问，成为中国古代辉煌文明的一张金字名片，被誉为世界十大古墓稀世珍宝之一。</p>
         </div>
-        <div class="bing_p" v-if="curr==7">
+        <div class="bing_p" v-if="curr==70">
           <img style="width:100%"  src="../../static/image/show_v/jin.jpg" alt="">
           <p>《金字塔》金字塔具今已有4500年的历史，由于它形似汉字中的“金”字，因而被称为“埃及金字塔‘’约从公元前3500年开始，尼罗河出现几十个奴隶制小国。约公元前3100年，初步统一的古代埃及国家建立起来。古埃及国王也称法老，是古埃及最大的奴隶主，拥有至高无上的权力。他们为自己修建了巨大的陵墓金字塔，金字塔就成了法老权力的象征。在胡夫拉金字塔前，还有一尊狮身人面像守卫着法老们的陵墓。</p>
         </div>
@@ -68,6 +69,34 @@
         <div class="yanjiu" v-if="curr==4">
           <a href="http://www.zhazhi.com/lunwen/whls/whyclw/140037.html" target="view_window">谈世界文化遗产保护与开发</a>
           <a href="https://www.xzbu.com/2/view-6332849.htm" target="view_window">世界文化遗产地旅游保护性开发研究</a>
+        </div>
+
+        <div class="zhuanti" v-if="curr==6">
+          <ul>
+            <li>
+              <a href="#">
+                <span>长城专题</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <!--<img src="../../static/images/huang00.jpg" alt="">-->
+                <span>黄山专题</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <!--<img src="../../static/images/zhongbazoulang.jpg" alt="">-->
+                <span>中巴走廊专题</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <!--<img src="../../static/images/wugeku.jpg" alt="">-->
+                <span>吴哥窟专题</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -82,7 +111,6 @@
     data(){
       return{
         curr:-1,
-        curr1:-1
       }
     },
     components:{
@@ -96,6 +124,9 @@
       child1(x){
         this.curr = x
       }
+    },
+    activated() {
+      this.current(-1)
     },
   }
 </script>
@@ -259,5 +290,35 @@
           margin 20px 5px
           &:hover
             color #0086b3
+      .zhuanti
+        ul
+          display flex
+          flex-wrap: wrap
+          li
+            width 50%
+            height 250px
+            overflow hidden
+            padding 10px 8px
+            box-sizing border-box
+            a
+              display block
+              height 100%
+          :nth-child(1)
+            a
+              background url('../../static/changcheng/changcheng1.jpg') no-repeat center center
+              background-size 100% 100%
+          :nth-child(2)
+            a
+              background url('../../static/images/huang00.jpg') no-repeat center center
+              background-size 100% 100%
+          :nth-child(3)
+            a
+              background url('../../static/images/zhongbazoulang.jpg') no-repeat center center
+              background-size 100% 100%
+          :nth-child(4)
+            a
+              background url('../../static/images/wugeku.jpg') no-repeat center center
+              background-size 100% 100%
+
 
 </style>

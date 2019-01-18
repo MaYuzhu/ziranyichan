@@ -22,7 +22,7 @@
     <ul>
       <li>
         <div class="avatar">
-          <img src="../../static/images/83293260.jpg" alt="">
+          <!--<img src="../../static/images/83293260.jpg" alt="">-->
         </div>
         <div class="right">
           <p class="user_name">whs</p>
@@ -32,7 +32,7 @@
       </li>
       <li>
         <div class="avatar">
-          <img src="../../static/images/83293260.jpg" alt="">
+          <!--<img src="../../static/images/83293260.jpg" alt="">-->
         </div>
         <div class="right">
           <p class="user_name">whs</p>
