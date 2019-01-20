@@ -78,7 +78,7 @@
     },
     methods:{
       childClick (item) {
-        console.log(item)
+        //console.log(item)
       },
       childClick1 (item) {
         this.curr = item

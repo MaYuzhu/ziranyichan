@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <div class="wrap_belt">
+    <div class="wrap_belt" v-if="specialDetails==0">
       <div class="left_belt">
         <p><router-link to="/">首页</router-link> > <span @click="current(-1)">可视化展示</span></p>
         <div>
@@ -73,31 +73,54 @@
 
         <div class="zhuanti" v-if="curr==6">
           <ul>
-            <li>
-              <a href="#">
+            <li @click="_specialDetails(1)">
+              <a href="javascript:;">
                 <span>长城专题</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="javascript:;">
                 <!--<img src="../../static/images/huang00.jpg" alt="">-->
                 <span>黄山专题</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="javascript:;">
                 <!--<img src="../../static/images/zhongbazoulang.jpg" alt="">-->
                 <span>中巴走廊专题</span>
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="javascript:;">
                 <!--<img src="../../static/images/wugeku.jpg" alt="">-->
                 <span>吴哥窟专题</span>
               </a>
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+    <div class="special_details" v-if="specialDetails!==0">
+      <p><span>首页> </span><span>专题数据> </span><span>长城专题 </span></p>
+      <div>
+        <div>大图</div>
+        <div>小图</div>
+      </div>
+      <div>
+        <div>文档栏</div>
+        <div @click="time_axis()">时间轴</div>
+      </div>
+      <div class="show_set" style="display: none">
+        <ul class="show_set_left">
+          <li><input type="checkbox" v-model="selected_layers" value="图层1">图层1</li>
+          <li><input type="checkbox" v-model="selected_layers" value="图层2">图层2</li>
+          <li><input type="checkbox" v-model="selected_layers" value="图层3">图层3</li>
+          <li><input type="checkbox" v-model="selected_layers" value="图层4">图层4</li>
+          <li><input type="checkbox" v-model="selected_layers" value="图层5">图层5</li>
+        </ul>
+        <ul class="show_set_right" >
+          <li v-for="item in selected_layers">{{item}}</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -108,9 +131,12 @@
   import Header from '../components/header.vue'
   import Picture from '../components/picture.vue'
   export default {
+
     data(){
       return{
         curr:-1,
+        specialDetails:0,
+        selected_layers:[]
       }
     },
     components:{
@@ -123,10 +149,23 @@
       },
       child1(x){
         this.curr = x
-      }
+      },
+      _specialDetails(x){
+        this.specialDetails = x
+      },
+      time_axis(){
+      	$('.show_set').css('display','block')
+      },
+      /*sele_layer(value){
+
+      }*/
+    },
+    mounted(){
+
     },
     activated() {
       this.current(-1)
+      this._specialDetails(0)
     },
   }
 </script>
@@ -303,6 +342,15 @@
             a
               display block
               height 100%
+              span
+                display block
+                width: 100%
+                height: 34px
+                font-size: 14px
+                color: #fff
+                line-height: 2.4
+                padding-left: 16px
+                background: linear-gradient(to right, #00d8ff, rgba(0,216,255,0))
           :nth-child(1)
             a
               background url('../../static/changcheng/changcheng1.jpg') no-repeat center center
@@ -321,4 +369,13 @@
               background-size 100% 100%
 
 
+  .special_details
+    width 1000px
+    margin 20px auto
+    .show_set
+      ul
+        float left
+        border 1px solid
+        width 120px
+        height 300px
 </style>
