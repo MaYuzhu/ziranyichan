@@ -80,19 +80,16 @@
             </li>
             <li>
               <a href="javascript:;">
-                <!--<img src="../../static/images/huang00.jpg" alt="">-->
                 <span>黄山专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:;">
-                <!--<img src="../../static/images/zhongbazoulang.jpg" alt="">-->
                 <span>中巴走廊专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:;">
-                <!--<img src="../../static/images/wugeku.jpg" alt="">-->
                 <span>吴哥窟专题</span>
               </a>
             </li>
@@ -101,26 +98,44 @@
       </div>
     </div>
     <div class="special_details" v-if="specialDetails!==0">
-      <p><span>首页> </span><span>专题数据> </span><span>长城专题 </span></p>
-      <div>
-        <div>大图</div>
-        <div>小图</div>
+      <p style="margin-bottom:14px;"><router-link to="/">首页</router-link> >
+        <span style="cursor:pointer;" @click="current(-1)">可视化展示</span> >
+        <span style="cursor:pointer;" @click="_specialDetails(0)">专题数据</span> > <span>长城专题 </span></p>
+      <div style="position:relative;">
+        <Picture style="width:760px" v-bind:picture_url="picture_url"></Picture>
+        <div class="special_details_right">
+          <ul>
+            <li>PDF文档1</li>
+            <li>PDF文档2</li>
+            <li>PDF文档3</li>
+            <li>PDF文档4</li>
+          </ul>
+          <div @click="time_axis()">时间轴</div>
+        </div>
       </div>
-      <div>
-        <div>文档栏</div>
-        <div @click="time_axis()">时间轴</div>
-      </div>
-      <div class="show_set" style="display: none">
-        <ul class="show_set_left">
-          <li><input type="checkbox" v-model="selected_layers" value="图层1">图层1</li>
-          <li><input type="checkbox" v-model="selected_layers" value="图层2">图层2</li>
-          <li><input type="checkbox" v-model="selected_layers" value="图层3">图层3</li>
-          <li><input type="checkbox" v-model="selected_layers" value="图层4">图层4</li>
-          <li><input type="checkbox" v-model="selected_layers" value="图层5">图层5</li>
-        </ul>
-        <ul class="show_set_right" >
-          <li v-for="item in selected_layers">{{item}}</li>
-        </ul>
+
+      <div class="show_set" style="display:none">
+        <p>图层动画设置 <i class="icon iconfont icon-guanbi1"></i></p>
+        <div class="show_set_content">
+          <div class="show_set_left">
+            <p>图层列表</p>
+            <ul class="">
+              <li><input type="checkbox" v-model="selected_layers" value="图层1">图层1</li>
+              <li><input type="checkbox" v-model="selected_layers" value="图层2">图层2</li>
+              <li><input type="checkbox" v-model="selected_layers" value="图层3">图层3</li>
+              <li><input type="checkbox" v-model="selected_layers" value="图层4">图层4</li>
+              <li><input type="checkbox" v-model="selected_layers" value="图层5">图层5</li>
+            </ul>
+          </div>
+          <div class="show_set_right">
+            <p>已选择图层</p>
+            <ul class="show_set_right" >
+              <li v-for="item in selected_layers">{{item}}</li>
+            </ul>
+          </div>
+          <p>频率设置: <input type="radio" name="s" value="1">1s <input type="radio" name="s" value="5">5s</p>
+        </div>
+        <div>播&nbsp;&nbsp;放</div>
       </div>
     </div>
   </div>
@@ -129,14 +144,24 @@
 
 <script>
   import Header from '../components/header.vue'
-  import Picture from '../components/picture.vue'
+  import Picture from '../components/picture_all_purpose.vue'
+
   export default {
 
     data(){
       return{
         curr:-1,
         specialDetails:0,
-        selected_layers:[]
+        selected_layers:[],
+        picture_url:[
+          "../../static/images/huangshan01.jpg",
+          "../../static/images/huangshan02.jpg",
+          "../../static/images/huangshan03.jpg",
+          "../../static/images/huangshan04.jpg",
+          "../../static/changcheng/changcheng1.jpg",
+          "../../static/changcheng/changcheng2.jpg",
+          "../../static/changcheng/changcheng3.jpg"
+        ]
       }
     },
     components:{
@@ -146,6 +171,7 @@
     methods:{
       current(x){
         this.curr = x
+        this.specialDetails = 0
       },
       child1(x){
         this.curr = x
@@ -335,47 +361,143 @@
           flex-wrap: wrap
           li
             width 50%
-            height 250px
+            height 266px
             overflow hidden
-            padding 10px 8px
+            padding 0px 8px 16px
             box-sizing border-box
             a
               display block
               height 100%
               span
                 display block
-                width: 100%
-                height: 34px
-                font-size: 14px
-                color: #fff
-                line-height: 2.4
-                padding-left: 16px
-                background: linear-gradient(to right, #00d8ff, rgba(0,216,255,0))
+                width 100%
+                height 34px
+                font-size 16px
+                color #fff
+                line-height 34px
+                padding-left 16px
           :nth-child(1)
             a
               background url('../../static/changcheng/changcheng1.jpg') no-repeat center center
               background-size 100% 100%
+              span
+                background linear-gradient(to right, #00d8ff, rgba(0,216,255,0))
           :nth-child(2)
             a
-              background url('../../static/images/huang00.jpg') no-repeat center center
+              background url('../../static/images/huangshan02.jpg') no-repeat center center
               background-size 100% 100%
+              span
+                background linear-gradient(to right, #4797de, rgba(71, 151, 222, 0))
           :nth-child(3)
             a
-              background url('../../static/images/zhongbazoulang.jpg') no-repeat center center
+              background url('../../static/images/zhongbazoulang.png') no-repeat center center
               background-size 100% 100%
+              span
+                background linear-gradient(to right, #015ca2, rgba(1, 92, 162, 0))
           :nth-child(4)
             a
-              background url('../../static/images/wugeku.jpg') no-repeat center center
+              background url('../../static/images/wugeku.png') no-repeat center center
               background-size 100% 100%
+              span
+                background linear-gradient(to right, #00a0dc, rgba(0, 160, 220, 0))
 
 
   .special_details
     width 1000px
     margin 20px auto
+    position relative
+    .special_details_right
+      position absolute
+      top 0
+      right 10px
+      width 210px
+      >:nth-child(1)
+        height 400px
+        background url('../../static/images/wendang.png') no-repeat center center
+        background-size 100% 100%
+        li
+          text-align center
+          margin 10px auto
+          font-size 16px
+          cursor pointer
+        >:nth-child(1)
+          padding-top 56px
+      >:nth-child(2)
+        margin-top 50px
+        background #57aaf6
+        font-size 16px
+        color white
+        border-radius 5px
+        text-align center
+        padding 8px
+        cursor pointer
     .show_set
-      ul
-        float left
-        border 1px solid
-        width 120px
-        height 300px
+      position absolute
+      top 100px
+      left 50%
+      transform translate(-50%,0)
+      width 414px
+      height 358px
+      background #ebe7e8
+      border-radius 6px
+      >p
+        height 28px
+        line-height 28px
+        font-size 16px
+        background #57aaf6
+        border-radius 6px 6px 0 0
+        color white
+        padding-left 18px
+        i
+          float right
+          font-size 12px
+          margin-right 8px
+          cursor pointer
+      .show_set_content
+        width 90%
+        height 280px
+        border-bottom 1px solid #d1d1d1
+        margin 10px auto 0
+        div
+          p
+            width 66px
+            transform translate(16px, 6px)
+            background #ebebeb
+        ul
+          padding-top 20px
+          border 1px solid #d1d1d1
+          width 170px
+          height 220px
+          background #eeeeee
+          border-radius 4px
+          li
+            font-size 16px
+            padding 4px 0
+            text-align center
+            input
+              margin-right 8px
+        >:nth-child(1)
+          float left
+
+        >:nth-child(2)
+          float right
+        >p
+          font-size 14px
+          float left
+          margin-top 5px
+          input
+            margin-left 18px
+
+      >:nth-child(3)
+        width 80px
+        height 28px
+        line-height 28px
+        border-radius 5px
+        color white
+        background #57aaf6
+        text-align center
+        font-size 14px
+        float right
+        margin 6px 20px 0 0
+
 </style>

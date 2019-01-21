@@ -182,10 +182,10 @@
               width 48%
               height 270px
               cursor pointer
-            /*>:nth-child(1)
+            >:nth-child(1)
               background url('../../static/image/belt/zhangqian.jpg') center no-repeat
             >:nth-child(2)
-              background url('../../static/image/belt/zhenghe.jpg') center no-repeat*/
+              background url('../../static/image/belt/zhenghe.jpg') center no-repeat
             .p1
               font-size 14px
               color #fff
