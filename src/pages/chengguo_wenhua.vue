@@ -8,9 +8,9 @@
             <ul>
               <li @click="goto('/chengguowenhua/ziran')" :class="{active:isChang('./ziran')}">
                 文化遗产<div :class="{sanjiao:isChang('./ziran')}"></div></li>
-              <li @click="goto('/chengguowenhua/zhuanti')" :class="{active:isChang('./zhuanti')}">
+              <li style="opacity:0;" click="goto('/chengguowenhua/zhuanti')" :class="{active:isChang('./zhuanti')}">
                 专题数据<div :class="{sanjiao:isChang('./zhuanti')}"></div></li>
-              <li @click="goto('/chengguowenhua/jiaohu')" :class="{active:isChang('./jiaohu')}">
+              <li style="opacity:0;" click="goto('/chengguowenhua/jiaohu')" :class="{active:isChang('./jiaohu')}">
                 成果交互<div :class="{sanjiao:isChang('./jiaohu')}"></div></li>
             </ul>
 

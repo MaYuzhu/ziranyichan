@@ -13,12 +13,13 @@
             <li @click="current(3)" :class="{on:curr==3}">海上丝绸之路</li>
             <li @click="current(4,0)" :class="{on:curr==4}">人物专题路线</li>
             <li @click="current(5)" :class="{on:curr==5}">世界遗产总览</li>
+            <li @click="current(6)" :class="{on:curr==6}">污染物浓度数据集</li>
           </ul>
           <img src="../../static/image/belt/footer_left.png" alt="">
         </div>
       </div>
       <div class="right_belt">
-        <p>一带一路地图</p>
+        <p style="opacity:0;">一带一路地图</p>
         <div v-if="curr==0">
           <iframe src="https://geohey.com/apps/dataviz/af1111aaea2e43838e1dd4f88017f9dc/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
                   id="myiframe0" scrolling="yes" frameborder="0"></iframe>
@@ -67,6 +68,10 @@
         <div v-if="curr==5">
           <iframe src="https://geohey.com/apps/dataviz/433214bb0d8c47a9854a5c5eb3db41d5/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
                   id="myiframe5" scrolling="yes" frameborder="0"></iframe>
+        </div>
+        <div v-if="curr==6">
+          <iframe src="https://geohey.com/apps/dataviz/dc7dab5f241a4e83ba315c4cee26bba9/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+                  id="myiframe6" scrolling="yes" frameborder="0"></iframe>
         </div>
       </div>
     </div>
@@ -159,7 +164,7 @@
         height 40px
         line-height 40px
         font-size 16px
-      #myiframe0,#myiframe1,#myiframe2,#myiframe3,#myiframe5
+      #myiframe0,#myiframe1,#myiframe2,#myiframe3,#myiframe5,#myiframe6
         width 100%
         height 512px
       >div

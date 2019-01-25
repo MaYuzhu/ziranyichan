@@ -35,6 +35,11 @@
         </div>
       </div>
       <div class="right_belt">
+        <div v-show="curr==-1" style="width:770px;height:522px;margin-top:20px">
+          <iframe style="width:770px;height:522px;margin-top:20px" src="https://geohey.com/apps/dataviz3d/13b8e789d7b54c4cbfd5b1ba223332e2/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+                  id="myiframe10" scrolling="yes" frameborder="0"></iframe>
+          <!--//36.110.66.217:3000银山塔林-->
+        </div>
         <p v-if="curr==1">智能识别</p>
         <div v-if="curr==1">
           <div>
@@ -107,7 +112,10 @@
         };
       }
       var accordion = new Accordion($('#accordion'), false);
-    }
+    },
+    activated() {
+      this.childClick1(-1)
+    },
   }
 </script>
 

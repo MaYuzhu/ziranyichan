@@ -8,10 +8,12 @@
             <ul>
               <li @click="goto('/chengguoziran/ziran')" :class="{active:isChang('./ziran')}">
                 自然遗产<div :class="{sanjiao:isChang('./ziran')}"></div></li>
-              <li @click="goto('/chengguoziran/zhuanti')" :class="{active:isChang('./zhuanti')}">
-                专题数据<div :class="{sanjiao:isChang('./zhuanti')}"></div></li>
-              <li @click="goto('/chengguoziran/jiaohu')" :class="{active:isChang('./jiaohu')}">
-                成果交互<div :class="{sanjiao:isChang('./jiaohu')}"></div></li>
+              <li style="opacity:0;" click="goto('/chengguoziran/zhuanti')" :class="{active:isChang('./zhuanti')}">
+                专题数据<div :class="{sanjiao:isChang('./zhuanti')}"></div>
+              </li>
+              <li style="opacity:0;" click="goto('/chengguoziran/jiaohu')" :class="{active:isChang('./jiaohu')}">
+                成果交互<div :class="{sanjiao:isChang('./jiaohu')}"></div>
+              </li>
             </ul>
 
             <router-view  v-on:childByValue="childByValue"

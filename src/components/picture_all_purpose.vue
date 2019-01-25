@@ -4,12 +4,12 @@
       <span id="prev" class="btn prev"></span>
       <span id="next" class="btn next"></span>
       <div id="picBox" class="picBox">
-        <div style="height:512px;color:#999;z-index:200;" v-show="pic==0">123</div>
+        <!--<div style="height:512px;color:#999;z-index:200;" v-show="pic==0">123</div>-->
         <ul class="cf">
           <li v-for="(item, index) in picture_url" :key="index">
             <a href="javascript:;" style="position:relative">
               <i @click="close_pic()" class="icon iconfont icon-guanbi" style="position:absolute;
-              font-size:30px;color:#d6d6d6;z-index:999;top:5px;right:5px;"></i>
+              font-size:30px;color:#898989;z-index:10;top:5px;right:7px;"></i>
               <img :src=item alt="">
             </a>
           </li>
@@ -20,11 +20,14 @@
       <div class="listBox_wrap">
         <div id="listBox" class="listBox">
           <ul class="cf">
-            <li :class='{on:index==-1}' v-for="(item, index) in picture_url" :key="index"><img :src=item alt="" alt=""></li>
+            <li :class='{on:index==-1}' v-for="(item, index) in picture_url" :key="index">
+              <!--<img :src=item alt="" alt="">-->
+              <img :src=item alt="" style="width:54px;height:38px;position:absolute;
+                      top:28px;left:56px;padding:0;">
+            </li>
           </ul>
         </div>
       </div>
-
       <div class="clear"></div>
     </div>
 	</div>
@@ -41,17 +44,21 @@
       picture_url:{
         type:Array,
         required:true
+      },
+      ul_width:{
+        type:Number,
+        required:true
       }
     },
     methods:{
       close_pic(){
         this.pic = 0
+        this.$emit('open_pic',false)
       }
     },
 		mounted(){
 	    var vm = this
       $(document).ready(function(){
-
           function G(s){
             return document.getElementById(s);
           }
@@ -98,9 +105,10 @@
           var oPicUl = oPic.getElementsByTagName("ul")[0];
           var oListUl = oList.getElementsByTagName("ul")[0];
           var w1 = oPicLi[0].offsetWidth;
-          var w2 = oListLi[0].offsetWidth;
+          var w2 = oListLi[0].offsetWidth + 10;
 
           oPicUl.style.width = w1 * len1 + "px";
+          //oPicUl.style.width = vm.ul_width
           oListUl.style.width = w2 * len2 + "px";
 
           var index = 0;
@@ -110,6 +118,7 @@
 
           function Change(){
             vm.pic = 1;
+            vm.$emit('open_pic',true)
             Animate(oPicUl, {left: - index * w1});
 
             if(index < num2){
@@ -188,16 +197,21 @@
   .mod18 .picBox{width:100%; height:512px; position:relative;overflow:hidden; background:#0D0D0D;}
   .mod18 .picBox ul{height:377px;position:absolute; left:0;}
   .mod18 .picBox li{padding-right:1px; width:760px;height:512px;}
-  .mod18 .listBox{width:100%;height:100px;margin:2px auto; position:relative; overflow:hidden;}
+  .mod18 .listBox{width:100%;height:100px;margin:5px auto; position:relative; overflow:hidden;}
   .mod18 .listBox_wrap{width:100%;height:100px;margin:10px auto;
                   background: #ffffff;box-shadow: 0 0 8px 2px #ccc;box-sizing: border-box;
                   position:relative; padding:0px 24px;overflow:hidden;}
   .mod18 .listBox ul{height:88px;position:absolute;}
-  .mod18 .listBox li{width:127px;height:77px;cursor:pointer;position:relative; padding:5px 0 0 0;}
+  .mod18 .listBox li{width:127px;height:90px;cursor:pointer;position:relative;//height77px
+                      //padding:5px 0 0 0;
+                      background :url('../../static/image/show_v/sanweiqiu.png') no-repeat center center
+                      background-size:100%,100%;
+                      margin 0 5px
+                    }
   .mod18 .listBox li i{display:none;}
   .mod18 .listBox li a{display:block;width:100%;height:77px;overflow:hidden;}
   .mod18 .listBox img{border:1px solid #fff;padding:4px;width:92%;height:100%;}
-  .mod18 .listBox .on img{border:1px solid #00f;}
+  .mod18 .listBox .on img{border:1px solid #f0f;}
   .mod18 .listBox .on{}
   .mod18 .listBox .on i{}
 </style>

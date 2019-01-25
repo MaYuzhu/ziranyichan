@@ -73,24 +73,9 @@
 
         <div class="zhuanti" v-if="curr==6">
           <ul>
-            <li @click="_specialDetails(1)">
+            <li v-for="(item,index) in name_yichan" @click="_specialDetails(index+1)">
               <a href="javascript:;">
-                <span>长城专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <span>黄山专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <span>中巴走廊专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:;">
-                <span>吴哥窟专题</span>
+                <span>{{item}}</span>
               </a>
             </li>
           </ul>
@@ -100,43 +85,59 @@
     <div class="special_details" v-if="specialDetails!==0">
       <p style="margin-bottom:14px;"><router-link to="/">首页</router-link> >
         <span style="cursor:pointer;" @click="current(-1)">可视化展示</span> >
-        <span style="cursor:pointer;" @click="_specialDetails(0)">专题数据</span> > <span>长城专题 </span></p>
+        <span style="cursor:pointer;" @click="_specialDetails(0)">专题数据</span> >
+        <span class="name_zhuanti"></span></p>
       <div style="position:relative;">
-        <Picture style="width:760px" v-bind:picture_url="picture_url"></Picture>
+        <div id="map_animation" class="map_animation" v-show="map_show">
+          <MapZhuanti v-bind:map_url="map_url" v-bind:selected_layers="selected_layers"
+              ref="map_play">
+          </MapZhuanti>
+        </div>
+        <Picture style="width:760px" v-bind:picture_url="picture_url" v-bind:ul_width="ul_width"
+                  v-on:open_pic="open_pic"></Picture>
         <div class="special_details_right">
           <ul>
-            <li>PDF文档1</li>
-            <li>PDF文档2</li>
-            <li>PDF文档3</li>
-            <li>PDF文档4</li>
+            <li @click="pdf_show(index)" v-for="(item,index) in pdfArray">
+              {{item.product_name}}
+            </li>
           </ul>
           <div @click="time_axis()">时间轴</div>
         </div>
+        <ul class="pdf_wrap" style="display:none;">
+          <li v-for="(item,index) in pdf_url" v-show="pdf_curr==index">
+            <embed style="width:100%;height:100%;" :src=item>
+            <i class="icon iconfont icon-guanbi" @click="close_pdf()"></i>
+          </li>
+        </ul>
       </div>
 
       <div class="show_set" style="display:none">
-        <p>图层动画设置 <i class="icon iconfont icon-guanbi1"></i></p>
+        <p>图层动画设置 <i class="icon iconfont icon-guanbi1" @click="close_tip()"></i></p>
         <div class="show_set_content">
           <div class="show_set_left">
             <p>图层列表</p>
-            <ul class="">
-              <li><input type="checkbox" v-model="selected_layers" value="图层1">图层1</li>
-              <li><input type="checkbox" v-model="selected_layers" value="图层2">图层2</li>
-              <li><input type="checkbox" v-model="selected_layers" value="图层3">图层3</li>
-              <li><input type="checkbox" v-model="selected_layers" value="图层4">图层4</li>
-              <li><input type="checkbox" v-model="selected_layers" value="图层5">图层5</li>
+            <ul class="ul_left">
+              <li v-for="(item, index) in map_url" :key="index" >
+                <input :id='index' type="checkbox" v-model="selected_layers" :value=item style="display:none">
+                <label :for='index'>
+                  {{item.name}}
+                </label>
+              </li>
             </ul>
           </div>
           <div class="show_set_right">
             <p>已选择图层</p>
-            <ul class="show_set_right" >
-              <li v-for="item in selected_layers">{{item}}</li>
+            <ul class="show_set_right_ul" >
+              <li v-for="item in selected_layers">{{item.name}}</li>
             </ul>
           </div>
-          <p>频率设置: <input type="radio" name="s" value="1">1s <input type="radio" name="s" value="5">5s</p>
+          <p>频率设置:
+            <input type="radio" checked name="s" value="1000">1s
+            <input type="radio" name="s" value="5000">5s</p>
         </div>
-        <div>播&nbsp;&nbsp;放</div>
+        <div @click="play()">播&nbsp;&nbsp;放</div>
       </div>
+      <div class="zhe" style="display:none"></div>
     </div>
   </div>
 
@@ -146,27 +147,33 @@
   import Header from '../components/header.vue'
   import Picture from '../components/picture_all_purpose.vue'
 
-  export default {
+  import MapZhuanti from '../components/map_zhuanti.vue'
 
+  export default {
     data(){
       return{
         curr:-1,
         specialDetails:0,
+        map_show:true,
+
+        pdf_curr:-1,
+        name_yichan:[
+          '长城专题','黄山专题','吴哥窟专题','中巴走廊专题','污染物浓度数据集'
+        ],
+        picture_url:[],
+        pdfArray: [],
+        pdf_url:[],
+        ul_width:0,
+
         selected_layers:[],
-        picture_url:[
-          "../../static/images/huangshan01.jpg",
-          "../../static/images/huangshan02.jpg",
-          "../../static/images/huangshan03.jpg",
-          "../../static/images/huangshan04.jpg",
-          "../../static/changcheng/changcheng1.jpg",
-          "../../static/changcheng/changcheng2.jpg",
-          "../../static/changcheng/changcheng3.jpg"
-        ]
+        map_url:[],
+        map_url_name:[]
       }
     },
     components:{
       Header,
-      Picture
+      Picture,
+      MapZhuanti
     },
     methods:{
       current(x){
@@ -177,17 +184,112 @@
         this.curr = x
       },
       _specialDetails(x){
-        this.specialDetails = x
+        let vm = this
+        vm.specialDetails = x
+        vm.map_show = true
+        if(x !== 0){
+          $('Header').css('display','none')
+          $('.name_zhuanti').html('aaa') //
+          //图片
+          let data_zhuanti_pic = {
+            heritageId:x,
+            dataType:'pic'
+          }
+          vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_pic,
+            false, getPic, null)
+          //地图服务地址
+          let data_zhuanti_shp = {
+            heritageId:x,
+            dataType:'shp'
+          }
+          vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_shp,
+            true, getShp, null)
+          //PDF
+          let data_zhuanti_doc = {
+            heritageId:x,
+            dataType:'doc'
+          }
+          vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_doc,
+            true, getDoc, null)
+        }else {
+          $('Header').css('display','block')
+        }
+        function getPic(json){
+          vm.picture_url = []
+          //console.log(json)
+          let data_lenght = json.body.results.length
+          if(data_lenght!==0){
+            for(let i=0;i<data_lenght;i++){
+              vm.picture_url.push(url_api + json.body.results[i].file_url)
+            }
+          }
+        }
+        function getDoc(json){
+          vm.pdfArray = []
+          vm.pdf_url = []
+          let data_lenght = json.body.results.length
+          if(data_lenght!==0){
+            for(let i=0;i<data_lenght;i++){
+              vm.pdfArray.push(json.body.results[i])
+              vm.pdf_url.push(url_api + json.body.results[i].file_url)
+            }
+          }
+          $('.name_zhuanti').text(vm.name_yichan[x-1])
+        }
+        function getShp(json){
+          //'https://geohey.com/s/dataviz/cebf8b019093606fe6191264cc6af5d5/{z}/{x}/{y}.png?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc&retina=@2x';
+          let url_before = 'https://geohey.com/s/dataviz/'
+          let url_after = '/{z}/{x}/{y}.png?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc&retina=@2x'
+          vm.map_url = []
+          vm.map_url_name = []
+          vm.selected_layers = []
+          let data_lenght = json.body.results.length
+          if(data_lenght!==0){
+            for(let i=0;i<data_lenght;i++){
+              vm.map_url_name.push(json.body.results[i].product_name)
+              vm.map_url.push({name:json.body.results[i].product_name,
+                url:url_before+json.body.results[i].service_url+url_after})
+            }
+          }
+        }
       },
-      time_axis(){
-      	$('.show_set').css('display','block')
-      },
-      /*sele_layer(value){
 
-      }*/
+      time_axis(){
+      	$('.show_set,.zhe').css('display','block')
+        $('.show_set input[type=checkbox]').prop('checked',false)
+        this.selected_layers = []
+      },
+      close_tip(){
+        $('.show_set,.zhe').css('display','none')
+      },
+      pdf_show(index){
+        this.pdf_curr = index
+        $('.pdf_wrap').css('display','block')
+      },
+      close_pdf(){
+        $('.pdf_wrap').css('display','none')
+      },
+      open_pic(data){
+        this.map_show = !data
+      },
+      play(){
+        if(this.selected_layers.length<1){
+          alert('请选择图层...')
+          return
+        }
+        let speed_time = $('input[name=s]:checked').val() * 1
+        $('.show_set,.zhe,.pdf_wrap').css('display','none')
+        this.map_show = true
+        this.$refs.map_play.child_map_play(speed_time);
+      },
+
     },
     mounted(){
-
+      /*for(let i=1;i<10;i++){
+        (function () {
+          setTimeout(() => console.log(i), 1000*i)
+        })()
+      }*/
     },
     activated() {
       this.current(-1)
@@ -254,7 +356,7 @@
         font-size 16px
       >div
         width 98%
-        height 522px
+        //height 522px
         >div
           height 166px
           display flex
@@ -390,16 +492,22 @@
                 background linear-gradient(to right, #4797de, rgba(71, 151, 222, 0))
           :nth-child(3)
             a
-              background url('../../static/images/zhongbazoulang.png') no-repeat center center
+              background url('../../static/images/wugeku.png') no-repeat center center
               background-size 100% 100%
               span
                 background linear-gradient(to right, #015ca2, rgba(1, 92, 162, 0))
           :nth-child(4)
             a
-              background url('../../static/images/wugeku.png') no-repeat center center
+              background url('../../static/images/zhongbazoulang.png') no-repeat center center
               background-size 100% 100%
               span
                 background linear-gradient(to right, #00a0dc, rgba(0, 160, 220, 0))
+          :nth-child(5)
+            a
+              background url('../../static/images/wuran.png') no-repeat center center
+              background-size 100% 100%
+              span
+                background linear-gradient(to right, #1163dc, rgba(0, 160, 220, 0))
 
 
   .special_details
@@ -412,6 +520,7 @@
       right 10px
       width 210px
       >:nth-child(1)
+        padding-top 56px
         height 400px
         background url('../../static/images/wendang.png') no-repeat center center
         background-size 100% 100%
@@ -420,8 +529,6 @@
           margin 10px auto
           font-size 16px
           cursor pointer
-        >:nth-child(1)
-          padding-top 56px
       >:nth-child(2)
         margin-top 50px
         background #57aaf6
@@ -431,18 +538,45 @@
         text-align center
         padding 8px
         cursor pointer
+    .map_animation
+      width 760px
+      height 512px
+      background #999
+      position absolute
+      top 0
+      left 0
+      z-index 19
+      //opacity .5
+    .pdf_wrap
+      width 760px
+      height 512px
+      background #fff
+      position absolute
+      top 0
+      left 0
+      z-index 20
+      li
+        height 100%
+        i
+          font-size 28px
+          position absolute
+          top 2px
+          right 22px
+          color #00d8ff
+          cursor pointer
     .show_set
       position absolute
       top 100px
       left 50%
       transform translate(-50%,0)
       width 414px
-      height 358px
+      height 366px
       background #ebe7e8
       border-radius 6px
+      z-index 1000
       >p
-        height 28px
-        line-height 28px
+        height 32px
+        line-height 32px
         font-size 16px
         background #57aaf6
         border-radius 6px 6px 0 0
@@ -451,7 +585,7 @@
         i
           float right
           font-size 12px
-          margin-right 8px
+          width 24px
           cursor pointer
       .show_set_content
         width 90%
@@ -470,17 +604,29 @@
           height 220px
           background #eeeeee
           border-radius 4px
+          overflow auto
           li
             font-size 16px
-            padding 4px 0
-            text-align center
-            input
-              margin-right 8px
         >:nth-child(1)
           float left
 
         >:nth-child(2)
           float right
+        .ul_left
+          li label
+            display block
+            width 100%
+            height 100%
+            padding 4px 0 4px 10px
+            box-sizing border-box
+            cursor pointer
+          li label:hover
+            background #d3d6d0
+          li input[type=checkbox]:checked + label
+            background #c0daf3
+        .show_set_right_ul
+          li
+            padding 4px 0 4px 10px
         >p
           font-size 14px
           float left
@@ -499,5 +645,16 @@
         font-size 14px
         float right
         margin 6px 20px 0 0
+        cursor pointer
 
+    .zhe
+      position fixed
+      top 0
+      right 0
+      bottom 0
+      left: 0
+      z-index 999
+      background-color: rgba(0, 0, 0, .6)
+      transition all .3s
+      //opacity 0
 </style>

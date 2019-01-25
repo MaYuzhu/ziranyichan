@@ -12,6 +12,12 @@
             <input type="text" name="productName">
           </div>
           <div>
+            <span>遗产地ID</span>
+            <select type="text" name="heritageId">
+              <option v-for="(item,index) in heritageIds" :value=item.heritage_id :key="index">{{item.heritage_name}}</option>
+            </select>
+          </div>
+          <div>
             <span>产品简介</span>
             <input type="text" name="synopsis">
           </div>
@@ -43,6 +49,10 @@
           <div>
             <span>元数据作者</span>
             <input type="text" name="metadataAuthor">
+          </div>
+          <div>
+            <span>地图服务地址</span>
+            <input type="text" name="service_url">
           </div>
           <div>
             <span>附件文件</span>
@@ -82,7 +92,8 @@
     export default {
       data(){
         return{
-          commitData:{}
+          commitData:{},
+          heritageIds:[]
         }
       },
       name: "data_upload",
@@ -128,7 +139,7 @@
             md5s = {},
 
             //API接口地址
-            baseUrl = "http://192.168.20.18:8080",
+            baseUrl = url_api,
 
             supportTransition = (function () {
               var s = document.createElement('p').style,
@@ -565,6 +576,7 @@
           }
         });
         //文件上传end
+
         //文件类型的格式
         $('select[name="dataType"]').on('change',function () {
           var dataFormatArr = []
@@ -579,7 +591,7 @@
               break
             case 'video' : dataFormatArr = ['flv','mp4']
               break
-            case 'shp' : dataFormatArr = ['geotif','tif','shp']
+            case 'shp' : dataFormatArr = ['geotif','tif','shp','map_url']
               break
             default: dataFormatArr = ['pdf']
           }
@@ -587,6 +599,30 @@
             $('select[name="dataFormat"]').append(`<option value=${dataFormatArr[i]}>${dataFormatArr[i]}</option>`)
           }
 
+        })
+
+        //查遗产地ID
+        $.ajax({
+          type: 'POST',
+          url: url_api + '/heritage/search',
+          dataType: 'json',
+          xhrFields:{
+            withCredentials:true
+          },
+          traditional: true,
+          crossDomain: true,
+          cache:true,
+          async: true,
+          success: function (json) {
+            if(json.head.status.code==200){
+              vm.heritageIds = json.body
+            }else {
+              alert(json.head.status.message)
+            }
+          },
+          error: function () {
+            console.log('error')
+          }
         })
       },
       methods:{
@@ -601,10 +637,12 @@
           vm.commitData.metadataOrganization = $('.uploadWrap input[name=metadataOrganization]').val()
           vm.commitData.metadataAuthor = $('.uploadWrap input[name=metadataAuthor]').val()
 
+          vm.commitData.heritageId = $('.uploadWrap select[name=heritageId]').val()
+          vm.commitData.serviceUrl = $('.uploadWrap input[name=service_url]').val()
           console.log(vm.commitData)
           $.ajax({
               type: 'POST',
-              url: 'http://192.168.20.18:8080/product/add',
+              url: url_api + '/product/add',
               data: vm.commitData,
               dataType: 'json',
               xhrFields:{
@@ -615,7 +653,7 @@
               cache:true,
               async: true,
               success: function (json) {
-                  console.log(json)
+                  //console.log(json)
                   if(json.head.status.code==200){
                       alert('新增数据提交成功')
                       window.location.reload()
