@@ -90,6 +90,7 @@
       <div style="position:relative;">
         <div id="map_animation" class="map_animation" v-show="map_show">
           <MapZhuanti v-bind:map_url="map_url" v-bind:selected_layers="selected_layers"
+                      v-bind:center_zhuanti="specialDetails"
               ref="map_play">
           </MapZhuanti>
         </div>
@@ -167,7 +168,8 @@
 
         selected_layers:[],
         map_url:[],
-        map_url_name:[]
+        map_url_name:[],
+
       }
     },
     components:{
@@ -189,7 +191,6 @@
         vm.map_show = true
         if(x !== 0){
           $('Header').css('display','none')
-          $('.name_zhuanti').html('aaa') //
           //图片
           let data_zhuanti_pic = {
             heritageId:x,
@@ -257,6 +258,7 @@
       time_axis(){
       	$('.show_set,.zhe').css('display','block')
         $('.show_set input[type=checkbox]').prop('checked',false)
+        $('.show_set input[type=radio][value="1000"]').prop('checked',true)
         this.selected_layers = []
       },
       close_tip(){

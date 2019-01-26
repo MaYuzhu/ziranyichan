@@ -1,7 +1,8 @@
 <template>
-  <div id="map" ref="rootmap">
 
-  </div>
+    <div id="map" ref="rootmap">
+    </div>
+
 </template>
 
 <script>
@@ -29,7 +30,17 @@
     data() {
       return {
         map: null,
-        layers:[]
+        layers:[],
+        map_center:[
+          [106.78688073,37.3174],
+          [118.1689,30.1422],
+          [105.3149,12.9403],
+          [76.3775,35.9602],
+          [180,0],
+        ],
+        zoom:[
+          5,12,7,4,2.1
+        ]
       };
     },
     props:{
@@ -41,6 +52,14 @@
         type:Array,
         required:true
       },
+      center_zhuanti:{
+        type:Number,
+        required:true
+      }
+      /*index_map_url:{
+        type:Array,
+        required:true
+      }*/
     },
     mounted() {
       var vm = this
@@ -90,21 +109,23 @@
           })
         }),
       ];
-
+      console.log(vm.center_zhuanti)
       this.map = new Map({
         target: "map",
         layers: [
           new TileLayer({
             source: new XYZ({
-              url:'http://mt2.google.cn/vt/lyrs=y&hl=zh-CN&gl=CN&src=app&x={x}&y={y}&z={z}&s=G'//谷歌卫星地图 混合
+              url:'http://mt0.google.cn/vt/lyrs=t@131,r@227000000&hl=zh-CN&gl=cn&x={x}&y={y}&z={z}&scale=2'
+              //url:'http://mt2.google.cn/vt/lyrs=y&hl=zh-CN&gl=CN&src=app&x={x}&y={y}&z={z}&s=G'//谷歌卫星地图 混合
             }),
             //source: new OSM()
           })
         ],
         view: new View({
           projection: "EPSG:4326",    //使用这个坐标系
-          center: [117.78688073,38.98251417],
-          zoom: 16
+          //center: [106.78688073,37.3174],
+          center:vm.map_center[vm.center_zhuanti-1],
+          zoom: vm.zoom[vm.center_zhuanti-1]
         })
       });
 
@@ -134,7 +155,7 @@
             x = setTimeout(() => {
               vm.map.removeLayer(vm.layers[i-1])
               setTimeout(()=>vm.map.removeLayer(vm.layers[vm.layers.length-1]),time*vm.layers.length)
-            }, time*(i+0.2))
+            }, time*(i+0.3))
           })()
         }
       },

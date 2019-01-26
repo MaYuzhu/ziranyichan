@@ -13,7 +13,7 @@
             <li @click="current(3)" :class="{on:curr==3}">海上丝绸之路</li>
             <li @click="current(4,0)" :class="{on:curr==4}">人物专题路线</li>
             <li @click="current(5)" :class="{on:curr==5}">世界遗产总览</li>
-            <li @click="current(6)" :class="{on:curr==6}">污染物浓度数据集</li>
+            <li @click="current(6)" :class="{on:curr==6}">全域灾害数据集</li>
           </ul>
           <img src="../../static/image/belt/footer_left.png" alt="">
         </div>
@@ -70,7 +70,7 @@
                   id="myiframe5" scrolling="yes" frameborder="0"></iframe>
         </div>
         <div v-if="curr==6">
-          <iframe src="https://geohey.com/apps/dataviz/dc7dab5f241a4e83ba315c4cee26bba9/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+          <iframe src="https://geohey.com/apps/dataviz/c16b85d5993b4df5ab8cd87e786e7a90/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
                   id="myiframe6" scrolling="yes" frameborder="0"></iframe>
         </div>
       </div>
