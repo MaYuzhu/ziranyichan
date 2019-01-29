@@ -201,10 +201,17 @@
           //地图服务地址
           let data_zhuanti_shp = {
             heritageId:x,
-            dataType:'shp'
+            dataType:'shp',
+            'page.size':50
           }
-          vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_shp,
-            true, getShp, null)
+
+          if(x==3 || x==4){
+            vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_shp,
+              true, getShpOut, null)
+          }else {
+            vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_shp,
+              true, getShp, null)
+          }
           //PDF
           let data_zhuanti_doc = {
             heritageId:x,
@@ -252,6 +259,13 @@
                 url:url_before+json.body.results[i].service_url+url_after})
             }
           }
+        }
+        function getShpOut(json) {
+          //console.log(json)
+          vm.map_url = []
+          vm.map_url_name = []
+          vm.selected_layers = []
+
         }
       },
 
