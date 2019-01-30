@@ -14,6 +14,7 @@
             <li @click="current(4,0)" :class="{on:curr==4}">人物专题路线</li>
             <li @click="current(5)" :class="{on:curr==5}">世界遗产总览</li>
             <li @click="current(6)" :class="{on:curr==6}">全域灾害数据集</li>
+            <li @click="current(7)" :class="{on:curr==7}">污染物浓度数据集</li>
           </ul>
           <img src="../../static/image/belt/footer_left.png" alt="">
         </div>
@@ -73,6 +74,27 @@
           <iframe src="https://geohey.com/apps/dataviz/c16b85d5993b4df5ab8cd87e786e7a90/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
                   id="myiframe6" scrolling="yes" frameborder="0"></iframe>
         </div>
+        <div class="right_belt7" v-if="curr==7">
+          <ul>
+            <li @click="table_pollution(0)" :class="{li:pollution==0}">污染物浓度数据集NO2</li>
+            <li @click="table_pollution(1)" :class="{li:pollution==1}">污染物浓度数据集CO2</li>
+            <li @click="table_pollution(2)" :class="{li:pollution==2}">污染物浓度数据集SO2</li>
+          </ul>
+          <div>
+            <div v-if="pollution==0">
+              <iframe src="https://geohey.com/apps/dataviz/62575260aa81429e89ac0ee3876b0a9b/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+                      class="air_pollution" scrolling="yes" frameborder="0"></iframe>
+            </div>
+            <div v-if="pollution==1">
+              <iframe src="https://geohey.com/apps/dataviz/df023ab5e046416d93c0de908536a6e2/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+                      class="air_pollution" scrolling="yes" frameborder="0"></iframe>
+            </div>
+            <div v-if="pollution==2">
+              <iframe src="https://geohey.com/apps/dataviz/88df33861f7f40068fa0c5d3ab2f9ddb/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+                      class="air_pollution" scrolling="yes" frameborder="0"></iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -87,6 +109,7 @@
   		return{
   			curr:0,
         curr4:0,
+        pollution:0,
       }
     },
   	components:{
@@ -101,6 +124,12 @@
       person(x){
         this.curr4 = x
       },
+      table_pollution(index){
+        this.pollution = index
+      }
+    },
+    activated() {
+      this.current(0)
     },
   }
 </script>
@@ -209,4 +238,27 @@
             height 100%
 
 
+      .right_belt7
+        transform translate(0,-30px)
+        >ul
+          display flex
+          z-index 30
+          position relative
+          li
+            padding 8px 12px
+            cursor pointer
+            font-size 14px
+          .li
+            border 2px solid #3381c5
+            border-bottom 2px solid #555
+            color #fff
+            background #555
+            border-radius 8px 8px 0 0
+        >div
+          border 2px solid #3381c5
+          transform translate(0,-2px)
+          z-index 1
+        .air_pollution
+          width 100%
+          height 506px
 </style>

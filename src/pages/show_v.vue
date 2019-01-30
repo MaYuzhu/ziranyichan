@@ -205,13 +205,9 @@
             'page.size':50
           }
 
-          if(x==3 || x==4){
-            vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_shp,
-              true, getShpOut, null)
-          }else {
-            vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_shp,
-              true, getShp, null)
-          }
+          vm.getAjaxRequest('POST', url_api+'/product/search', data_zhuanti_shp,
+            true, getShp, null)
+
           //PDF
           let data_zhuanti_doc = {
             heritageId:x,
@@ -255,17 +251,12 @@
           if(data_lenght!==0){
             for(let i=0;i<data_lenght;i++){
               vm.map_url_name.push(json.body.results[i].product_name)
-              vm.map_url.push({name:json.body.results[i].product_name,
-                url:url_before+json.body.results[i].service_url+url_after})
+              vm.map_url.push({
+                name:json.body.results[i].product_name,
+                url:json.body.results[i].service_url
+              })
             }
           }
-        }
-        function getShpOut(json) {
-          //console.log(json)
-          vm.map_url = []
-          vm.map_url_name = []
-          vm.selected_layers = []
-
         }
       },
 
