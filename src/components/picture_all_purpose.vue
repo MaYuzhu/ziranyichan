@@ -5,10 +5,17 @@
       <span id="next" class="btn next"></span>
       <div id="picBox" class="picBox">
         <!--<div style="height:512px;color:#999;z-index:200;" v-show="pic==0">123</div>-->
+        <div @click="next_pic(1)" class="switch prev_btn hide">
+          <img src="../../static/images/prevBtnTop.png" alt="">
+        </div>
+        <div @click="next_pic(2)" class="switch next_btn hide">
+          <img src="../../static/images/nextBtnTop.png" alt="">
+        </div>
         <ul class="cf">
           <li v-for="(item, index) in picture_url" :key="index">
             <a href="javascript:;" style="position:relative">
-              <i @click="close_pic()" class="icon iconfont icon-guanbi" style="position:absolute;
+
+              <i @click="close_pic()" class="icon iconfont icon-guanbi hide" style="position:absolute;
               font-size:30px;color:#898989;z-index:10;top:5px;right:7px;"></i>
               <img :src=item alt="">
             </a>
@@ -52,8 +59,16 @@
     },
     methods:{
       close_pic(){
-        this.pic = 0
+        //this.pic = 0
         this.$emit('open_pic',false)
+        $('.switch').addClass('hide')
+      },
+      next_pic(x){
+        if(x==1){
+          $('#prev').click()
+        }else {
+          $('#next').click()
+        }
       }
     },
 		mounted(){
@@ -173,6 +188,15 @@
           }
 
         });
+	    $('.picBox').hover(
+	      function () {
+          $('.icon-guanbi,.switch').addClass('show').removeClass('hide')
+        },
+        function () {
+          $('.icon-guanbi,.switch').removeClass('show').addClass('hide')
+        }
+      )
+
     }
   }
 </script>
@@ -214,4 +238,31 @@
   .mod18 .listBox .on img{border:1px solid #f0f;}
   .mod18 .listBox .on{}
   .mod18 .listBox .on i{}
+  .show
+    transition all 1s
+    opacity 1
+    visibility visible
+  .hide
+    transition all 1s
+    opacity 0
+    visibility hidden
+  .switch
+    width 20px
+    height 40px
+    background rgba(20,20,20,.4)
+    padding 10px
+    position absolute
+    top 50%
+    transform translate(0,-50%)
+    z-index 999
+    cursor pointer
+    img
+      width 100%
+      height 100%
+  .prev_btn
+    left 0
+  .next_btn
+    right 0
+  .switch:hover
+    background rgba(20,20,20,.8)
 </style>
