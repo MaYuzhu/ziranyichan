@@ -1,13 +1,12 @@
 <template>
     <div>
-      <Header></Header>
       <div class="data_management_wrap">
         <ul>
-          <li @click="goto('/data_management/data_file')"
+          <li @click="goto('/data_all/data_management/data_file')"
               :class="{active:isChang('./data_file')}">文件</li>
-          <li @click="goto('/data_management/data_table')"
+          <li @click="goto('/data_all/data_management/data_table')"
               :class="{active:isChang('./data_table')}">库表</li>
-          <li @click="goto('/data_management/data_upload')"
+          <li @click="goto('/data_all/data_management/data_upload')"
               :class="{active:isChang('./data_upload')}">上传</li>
         </ul>
         <router-view></router-view>
@@ -17,9 +16,13 @@
 </template>
 
 <script>
-  import Header from '../components/header'
+
   export default {
     name: "data_management",
+    data(){
+      return{
+      }
+    },
     methods:{
       goto(path){
         this.$router.push(path)
@@ -29,7 +32,6 @@
       },
     },
     components:{
-      Header,
     }
   }
 </script>
@@ -41,17 +43,19 @@
     >ul
       display flex
       width 1000px
-      margin 10px auto 4px
+      margin 14px auto 8px 30px
       >li
         width 62px
-        height 36px
+        height 26px
         text-align center
-        line-height 36px
+        line-height 26px
         font-size 14px
         cursor pointer
+        border-radius 13px
       .active
-        background #4797de
+        background #005ca1
         color #fff
+        transition .1s
     .data_management_table1
       width 1000px
       margin 0px auto

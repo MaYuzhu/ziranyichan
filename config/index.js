@@ -10,11 +10,20 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/api': { // 匹配所有以 '/api'开头的请求路径
+        //target: 'http://192.168.10.10', // 代理目标的基础路径
+        target:'http://192.168.20.23:8081',
+        changeOrigin: true, // 支持跨域
+        pathRewrite: {// 重写路径: 去掉路径中开头的'/api'
+          '^/api': ''
+        }
+      }
+    },
 
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    //host:'192.168.1.46',
+    //host: 'localhost', // can be overwritten by process.env.HOST
+    host:'192.168.1.46',
     port: 8070, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,

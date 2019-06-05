@@ -7,7 +7,7 @@
       <li><a href="javascript:;">伙伴</a></li>
       <li><a href="javascript:;">资源</a></li>
       <li><a href="javascript:;">互动</a></li>
-      <li @click="goto('/data_management')"  :class="{active:isChang('/data_management')}"><a href="javascript:;">数据管理</a></li>
+      <li v-show="isLogin" @click="goto('/data_all')" :class="{active:isChang('/data_all')}"><a href="javascript:;">数据管理</a></li>
     </ul>
     <div class="sou">
       <input type="text">
@@ -22,10 +22,11 @@
 <script>
     export default {
       name: "home-nav",
-
+      props:["isLogin"],
       methods:{
         goto(path){
           this.$router.push(path)
+          location.reload()
         },
         isChang(path){
           return this.$route.path.search(path) !== -1

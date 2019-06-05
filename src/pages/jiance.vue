@@ -9,7 +9,7 @@
             <li @click="childClick()">
               <div class="link">&nbsp; &nbsp;遥感监测<i class="iconfont icon-sanjiao"></i></div>
               <ul class="submenu">
-                <li :class="{on:curr==0}" @click="childClick1(0)">
+                <li v-show="isLogin" :class="{on:curr==0}" @click="childClick1(0)">
                   <a href="javascript:;">影像管理</a>
                 </li>
                 <li :class="{on:curr==1}" @click="childClick1(1)">
@@ -56,9 +56,13 @@
              href="http://36.110.66.217:3001/monitor-data" target="view_window">银山塔林</a>
         </div>
         <p v-if="curr==0">影像管理</p>
-        <div v-if="curr==0">
-          <a style="display:inline-block;width: 100%;font-size:16px"
-             href="http://localhost:8090/#/grid_image" target="view_window">影像管理</a>
+        <div v-if="curr==0" style="border: 0px solid #f00;position:relative;overflow:hidden">
+          <!--<a style="display:inline-block;width: 100%;font-size:16px"
+             href="http://localhost:8090/#/grid_image" target="view_window">影像管理</a>-->
+          <div class="zhe"></div>
+          <div class="info">
+            <iframe src="http://36.110.66.218:8081/project/all" width="920" height="800" scrolling="yes" />
+          </div>
         </div>
       </div>
     </div>
@@ -68,6 +72,7 @@
 
 <script>
   import Header from '../components/header.vue'
+  import Cookies from 'js-cookie'
   export default {
     data(){
       return{
@@ -76,6 +81,7 @@
         curr:-1,
         childValue: {},
         childValue1: '',
+        isLogin:false
       }
     },
     components:{
@@ -112,6 +118,11 @@
         };
       }
       var accordion = new Accordion($('#accordion'), false);
+      //判断登录
+      var user = Cookies.get("token")
+      if(user){
+        this.isLogin = true
+      }
     },
     activated() {
       this.childClick1(-1)
@@ -269,4 +280,19 @@
       a
         &:hover
           color #0086b3
+      .info
+        position absolute
+        top -70px
+        left -164px
+        width 920px
+        height 600px
+        border 1px solid #00a0db
+      .zhe
+        position absolute
+        top 140px
+        left 0
+        width 178px
+        height 146px
+        background #f4f4f4
+        z-index 999
 </style>

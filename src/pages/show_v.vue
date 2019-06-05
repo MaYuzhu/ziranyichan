@@ -250,6 +250,7 @@
           let data_lenght = json.body.results.length
           if(data_lenght!==0){
             for(let i=0;i<data_lenght;i++){
+              console.log(json.body.results[i].service_url)
               vm.map_url_name.push(json.body.results[i].product_name)
               vm.map_url.push({
                 name:json.body.results[i].product_name,

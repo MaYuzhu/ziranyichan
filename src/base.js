@@ -8,6 +8,7 @@ exports.install = function (Vue, options) {
     $.ajax({
       type: type,
       url: url,
+      //contentType: "application/json; charset=utf-8",
       data: data,
       dataType: 'json',
       xhrFields:{

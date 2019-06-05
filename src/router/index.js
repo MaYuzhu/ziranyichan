@@ -19,10 +19,13 @@ import WenJiaohu from '../pages/chengguo_wenhua2ji/jiaohu.vue'
 /*首页-图片点击*/
 import PictureLink from '../pages/picture_link'
 /*数据管理*/
-import DataManagement from '../pages/data_management'
-import DataUpload from '../pages/data_management_level2/data_upload'
-import DataTable from '../pages/data_management_level2/data_table'
-import DataFile from '../pages/data_management_level2/data_file'
+import DataAll from '../pages/data_all'
+import DataTwo from '../pages/data_all_level2/data_two'
+import DataThree from '../pages/data_all_level2/data_three'
+import DataManagement from '../pages/data_all_level2/data_management'
+import DataUpload from '../pages/data_all_level2/data_management_level2/data_upload'
+import DataTable from '../pages/data_all_level2/data_management_level2/data_table'
+import DataFile from '../pages/data_all_level2/data_management_level2/data_file'
 
 
 Vue.use(Router)
@@ -107,26 +110,47 @@ export default new Router({
       component: PictureLink,
     },
     {
-      path: '/data_management',
-      component: DataManagement,
+      path: '/data_all',
+      component: DataAll,
       children:[
         {
-          path: 'data_upload',
-          component: DataUpload
+          path: 'data_management',
+          component: DataManagement,
+          redirect: {name: 'DataFile'},
+          children:[
+            {
+              path: 'data_file',
+              name: 'DataFile',
+              component: DataFile
+            },
+            {
+              path: 'data_table',
+              component: DataTable
+            },
+            {
+              path: 'data_upload',
+              component: DataUpload
+            },
+            /*{
+              path: '',
+              redirect: 'data_file'
+            },*/
+          ],
         },
         {
-          path: 'data_table',
-          component: DataTable
+          path: 'data_two',
+          component: DataTwo
         },
         {
-          path: 'data_file',
-          component: DataFile
+          path: 'data_three',
+          component: DataThree
         },
         {
           path: '',
-          redirect: '/data_management/data_file'
+          redirect: 'data_management'
         },
       ],
+
     }
   ]
 })
