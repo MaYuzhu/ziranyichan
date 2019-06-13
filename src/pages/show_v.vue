@@ -159,7 +159,11 @@
 
         pdf_curr:-1,
         name_yichan:[
-          '长城专题','黄山专题','吴哥窟专题','中巴走廊专题','污染物浓度数据集'
+          '长城专题数据','黄山专题数据','吴哥窟区域能源环境基础数据','中巴走廊烽燧走势及文化传播线路数据',
+          '污染物浓度数据',
+          '自然遗产地边界数据','自然遗产地危害风险数据','丝路历史线路及节点数据',
+          '丝路主导文明影响区数据','海上丝绸之路遗产廊道数据','一带一路城市用地空间分布遥感数据',
+          '敦煌地区星空地一体化考古数据'
         ],
         picture_url:[],
         pdfArray: [],
@@ -250,7 +254,7 @@
           let data_lenght = json.body.results.length
           if(data_lenght!==0){
             for(let i=0;i<data_lenght;i++){
-              console.log(json.body.results[i].service_url)
+              //console.log(json.body.results[i].service_url)
               vm.map_url_name.push(json.body.results[i].product_name)
               vm.map_url.push({
                 name:json.body.results[i].product_name,
@@ -516,8 +520,48 @@
               background-size 100% 100%
               span
                 background linear-gradient(to right, #1163dc, rgba(0, 160, 220, 0))
-
-
+          :nth-child(6)
+            a
+              background url('../../static/zhuantiImg/ziran.png') no-repeat center center
+              background-size 100% 100%
+              span
+                background linear-gradient(to right, #00d8ff, rgba(0,216,255,0))
+          :nth-child(7)
+            a
+              background url('../../static/zhuantiImg/weihai.png') no-repeat center center
+              background-size 100% 100%
+              span
+                background linear-gradient(to right, #8126de, rgba(71, 151, 222, 0))
+          :nth-child(8)
+            a
+              background url('../../static/zhuantiImg/silu.png') no-repeat center center
+              background-size 100% 100%
+              span
+                background linear-gradient(to right, #00a0dc, rgba(0, 160, 220, 0))
+          :nth-child(9)
+            a
+              background url('../../static/zhuantiImg/siluwenming.png') no-repeat center center
+              background-size 100% 100%
+              span
+                background linear-gradient(to right, #949666, rgba(0, 160, 220, 0))
+          :nth-child(10)
+            a
+              background url('../../static/zhuantiImg/siluhai.png') no-repeat center center
+              background-size 100% 100%
+              span
+                background linear-gradient(to right, #dca02d, rgba(0, 160, 220, 0))
+          :nth-child(11)
+            a
+              background url('../../static/zhuantiImg/chengshi.png') no-repeat center center
+              background-size 100% 100%
+              span
+                background linear-gradient(to right, #61a192, rgba(0, 160, 220, 0))
+          :nth-child(12)
+            a
+              background url('../../static/zhuantiImg/dunhuang.png') no-repeat center center
+              background-size 100% 100%
+              span
+                background linear-gradient(to right, #b49d7d, rgba(0, 160, 220, 0))
   .special_details
     width 1000px
     margin 20px auto
@@ -533,6 +577,7 @@
         background url('../../static/images/wendang.png') no-repeat center center
         background-size 100% 100%
         li
+          width 120px
           text-align center
           margin 10px auto
           font-size 16px

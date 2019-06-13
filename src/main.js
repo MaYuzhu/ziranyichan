@@ -10,6 +10,8 @@ import 'mint-ui/lib/style.css'
 import $ from 'jquery'
 import base from './base'
 
+import '../static/css/mint_ui.css'
+
 Vue.use(base)
 Vue.config.productionTip = false
 

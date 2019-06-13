@@ -76,7 +76,7 @@
           return
         }
         let dataZhuce = {
-          username:vm.username,
+          email:vm.username,
           password:vm.password
         }
         let dataZhuceGeo = {
@@ -84,7 +84,7 @@
           "password":hex_sha1(vm.password)
         }
 
-        vm.getAjaxRequest('POST', url_api+'/user/add', dataZhuce,
+        vm.getAjaxRequest('POST', url_api+'/person/register/commit', dataZhuce,
           true, addUser, null)
 
         function addUser (res){
