@@ -16,6 +16,7 @@ import Jiaohu from '../pages/chengguo_ziran2ji/jiaohu.vue'
 import Wenhua from '../pages/chengguo_wenhua2ji/ziranyichan.vue'
 import WenZhuanti from '../pages/chengguo_wenhua2ji/zhuantishuju.vue'
 import WenJiaohu from '../pages/chengguo_wenhua2ji/jiaohu.vue'
+import SetPassword from '../pages/set_password'
 /*首页-图片点击*/
 import PictureLink from '../pages/picture_link'
 /*数据管理*/
@@ -98,6 +99,10 @@ export default new Router({
       component: Belt,
     },
     {
+      path: '/set_password',
+      component: SetPassword,
+    },
+    {
       path: '/show_v',
       component: Show_v,
     },
@@ -151,6 +156,6 @@ export default new Router({
         },
       ],
 
-    }
+    },
   ]
 })

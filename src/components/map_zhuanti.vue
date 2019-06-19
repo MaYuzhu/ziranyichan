@@ -1,5 +1,10 @@
 <template>
 
+  <div class="map_wrap">
+    <div class="iframe" v-show="map_geo_show">
+      <iframe :src="src_map"
+              width="760" height="512" frameborder="0"></iframe>
+    </div>
     <div id="map" ref="rootmap">
       <p @click="close(true)" v-show="!layers_show" class="layers_list_but">图层</p>
       <div class="layers_list_wrap" v-show="layers_show">
@@ -14,7 +19,10 @@
           </li>
         </ul>
       </div>
+      <i @click="closeBig()" class="closeBig icon iconfont icon-guanbi1"></i>
     </div>
+  </div>
+
 
 </template>
 
@@ -61,12 +69,27 @@
           [109.9830,38.4635], //敦煌
         ],
         zoom:[
-          17,11.5,11,4,2.5,
-          2.2,2.2,2.2,4,3,
-          4,5
+          17,11.5,11,5,5,
+          5,5,5,5,5,
+          5,5
         ],
         value:[],
-        layers_show:false
+        layers_show:false,
+        geo_map_arr:[
+          'https://geohey.com/apps/dataviz/9d92573d1a11405aa99f883357090eff/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc',
+          'https://geohey.com/apps/dataviz/5c3bf762d357490eaf8c3121c8fa668f/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc',
+          'https://geohey.com/apps/dataviz/c3395f3675ee4920bbe3d7b131e51c32/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc',
+          'https://geohey.com/apps/dataviz/32e0a446dc894ccd86ba1e8240ae83ae/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc',
+          'https://geohey.com/apps/dataviz/88df33861f7f40068fa0c5d3ab2f9ddb/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY',   //no
+          'http://36.110.66.218:8081/apps/dataviz/478a24245566406d8941268a1bb05ccb/share?ak=OWJhNTU0ZDg5OTFhNDMzMTkzNDU0OWUwNjhhNDI2NDQ',
+          'https://geohey.com/apps/dataviz/aba78e28e632460588f24a229a95ee67/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY',
+          'http://36.110.66.218:8081/apps/dataviz/47f2a7fe7c7c45d39e72f7a96d95364e/share?ak=OWJhNTU0ZDg5OTFhNDMzMTkzNDU0OWUwNjhhNDI2NDQ',
+          '',//无
+          'https://geohey.com/apps/dataviz/9faea1754cd244a583997b1379378d56/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY',
+          'https://geohey.com/apps/dataviz/ae3dc37581274c6098dc1c528825e01f/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc',
+          'https://geohey.com/apps/dataviz/f51cbd8cbeef458ca665696a52f39cb8/share?ak=OGJkMGQwNTVlNzYzNDA0NmIwNDYxZDY4YjQwYmJlYzc',
+        ],
+        src_map:'',
       };
     },
     props:{
@@ -79,6 +102,14 @@
         required:true
       },
       center_zhuanti:{
+        type:Number,
+        required:true
+      },
+      map_geo_show:{
+        type:Boolean,
+        required:true
+      },
+      index_geo:{
         type:Number,
         required:true
       }
@@ -157,7 +188,9 @@
       });
 
       $('.ol-zoom,.ol-attribution').css('display', 'none')
-      console.log(vm.map_url)
+
+      //嵌入的地址
+      vm.src_map = vm.geo_map_arr[vm.index_geo - 1]
     },
     methods:{
       //所有图层动态播放
@@ -216,69 +249,85 @@
         }
 
       },
-
+      //关闭大地图（时间轴的底图）
+      closeBig(){
+        this.$emit('closeBig',true)
+      }
     },
   };
 </script>
 
 <style lang="stylus" scoped>
-  #map
+  .map_wrap
     height 100%
     position relative
-    .layers_list_but
+    .iframe
       position absolute
-      top 10px
-      left 10px
       z-index 999
-      background rgba(250, 250, 250, 0.75)
-      padding 5px 10px
-      font-size 16px
-      cursor pointer
-    .layers_list_wrap
+    #map
+      width 760px
+      height 100%
       position absolute
-      top 10px
-      left 10px
-      z-index 999
-      width 210px
-      background rgba(250, 250, 250, 0.75)
-      border-radius 3px
-      .layers_list_header
-        display flex
-        justify-content space-between
-        align-items center
-        height 30px
-        p
-          padding 5px 10px
-          font-size 16px
-          cursor pointer
-        i
-          margin-right 8px
-          cursor pointer
-          font-size 14px
-      .layers_list
+      z-index 666
+      .layers_list_but
+        position absolute
+        top 10px
+        left 10px
+        z-index 999
+        background rgba(250, 250, 250, 0.75)
+        padding 5px 10px
+        font-size 16px
+        cursor pointer
+      .layers_list_wrap
+        position absolute
+        top 10px
+        left 10px
+        z-index 999
         width 210px
-        padding 0 16px
-        box-sizing border-box
-        min-height 100px
-        max-height 300px
-        overflow-y auto
-        li
+        background rgba(250, 250, 250, 0.75)
+        border-radius 3px
+        .layers_list_header
           display flex
-          margin 8px 0px
-      .layers_list::-webkit-scrollbar /*滚动条整体样式*/
-        width 4px    /*高宽分别对应横竖滚动条的尺寸*/
-        height 4px
+          justify-content space-between
+          align-items center
+          height 30px
+          p
+            padding 5px 10px
+            font-size 16px
+            cursor pointer
+          i
+            margin-right 8px
+            cursor pointer
+            font-size 14px
+        .layers_list
+          width 210px
+          padding 0 16px
+          box-sizing border-box
+          min-height 100px
+          max-height 300px
+          overflow-y auto
+          li
+            display flex
+            margin 8px 0px
+        .layers_list::-webkit-scrollbar /*滚动条整体样式*/
+          width 4px    /*高宽分别对应横竖滚动条的尺寸*/
+          height 4px
 
-      .layers_list::-webkit-scrollbar-thumb /*滚动条里面小方块*/
-        border-radius 5px
-        -webkit-box-shadow inset 0 0 5px rgba(0,0,0,0.2)
-        background rgba(0,0,0,0.2)
+        .layers_list::-webkit-scrollbar-thumb /*滚动条里面小方块*/
+          border-radius 5px
+          -webkit-box-shadow inset 0 0 5px rgba(0,0,0,0.2)
+          background rgba(0,0,0,0.2)
 
-      .layers_list::-webkit-scrollbar-track /*滚动条里面轨道*/
-        -webkit-box-shadow inset 0 0 5px rgba(0,0,0,0.2)
-        border-radius 0
-        background rgba(0,0,0,0.1)
+        .layers_list::-webkit-scrollbar-track /*滚动条里面轨道*/
+          -webkit-box-shadow inset 0 0 5px rgba(0,0,0,0.2)
+          border-radius 0
+          background rgba(0,0,0,0.1)
 
 
-
+      .closeBig
+        position absolute
+        top 10px
+        right 10px
+        z-index 667
+        cursor pointer
 </style>

@@ -5,12 +5,12 @@
         <i class="icon iconfont icon-guanbi1"></i>
       </div>
       <p class="title">用户登录</p>
-      <p class="user"><label>账号<span><input type="text" v-model="username"></span></label></p>
-      <p class="user"><label>密码<span><input type="password" v-model="password"></span></label></p>
+      <p class="user"><label>邮箱<span><input type="text" v-model="username"></span></label></p>
+      <p class="user"><label>密码<span><input type="password" v-model="password" @keyup.enter="login"></span></label></p>
       <p class="p3">
         <input id="auto_login" type="checkbox" style="display: none">
         <label class="auto_login_show" for="auto_login"> <i>自动登录</i></label>
-        <a href="javascript:;">忘记密码？</a>
+        <router-link to="/set_password">忘记密码？</router-link>
       </p>
       <p class="tip_text">{{alertText}}</p>
       <div class="btn_login" @click="login">登&nbsp;&nbsp;&nbsp;录</div>
@@ -52,7 +52,7 @@
         }
         if(!vm.username){
           Toast({
-            message: '请输入用户名',
+            message: '请输入邮箱',
             duration: 1000
           })
           return
@@ -77,7 +77,7 @@
               window.location.reload()
               vm.$emit('username',res.body.username)
               vm.closeTip()
-              Cookies.set('user_name',res.body.username, {expires: 7})
+              Cookies.set('user_name',res.body.username)
             },2000)
 
           }else {
@@ -89,7 +89,7 @@
 
         }
         //登录极海
-        let dataLoginGeo = {
+        /*let dataLoginGeo = {
           "email":vm.username,
           "password":hex_sha1(vm.password)
         }
@@ -108,14 +108,14 @@
           success:function (res) {
             console.log(res)
             if(res.code==0){
-              Cookies.set('token',res.data.token, {expires: 7})
+              Cookies.set('token',res.data.token)
               //window.location.reload()
             }
           },
           error:function (message) {
             console.log(message);
           }
-        })
+        })*/
       }
     },
     components:{
@@ -164,7 +164,7 @@
         border-radius 50%
         background #0096da
         color #fff
-        line-height 40px
+        line-height 42px
         text-align center
         cursor pointer
       .guan:hover

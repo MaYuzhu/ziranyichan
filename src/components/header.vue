@@ -9,7 +9,7 @@
           <p>Natural and cultural heritage monitoring and protection service platform</p>
         </div>
       </div>
-      <span v-show="isLogin" class="user_name">欢迎 {{username}}</span>
+      <span v-show="isLogin" class="user_name">已登录 {{username}}</span>
       <p @click="login(isLogin)">{{isLogin?'退出':'登录/注册'}}</p>
     </header>
     <div class="nav">
@@ -67,7 +67,6 @@
                 duration: 2000
               })
               setTimeout(()=>{
-                Cookies.remove('token')
                 Cookies.remove('user_name')
                 vm.username = ''
                 vm.isLogin = false

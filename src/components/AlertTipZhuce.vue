@@ -5,11 +5,48 @@
         <i class="icon iconfont icon-guanbi1"></i>
       </div>
       <p class="title">用户注册</p>
-      <p class="user"><label>账号<span><input type="text" v-model="username"></span></label></p>
-      <p class="user"><label>密码<span><input type="password" v-model="password"></span></label></p>
-      <p class="user"><label>确认密码<span><input type="password" @blur="passwordCheck()"
-                                              v-model="password_re" style="width:130px"></span></label></p>
+      <p class="user">
+        <label>邮箱
+          <span>
+            <input type="text" v-model="username" @blur="email()" placeholder="请输入您的邮箱">
+          </span>
+        </label>
+        <i v-show="email_false_icon" class="icon iconfont icon-chacha" style="color: #dc0000"></i>
+        <i v-show="email_true_icon" class="icon iconfont icon-gou" style="color: #1cc29d;font-size: 15px"></i>
+      </p>
+      <p class="user">
+        <label>密码
+          <span>
+            <input type="password" v-model="password" @blur="passwordL()" placeholder="请输入6-18位字符">
+          </span>
+        </label>
+        <i v-show="password_false_icon" class="icon iconfont icon-chacha" style="color: #dc0000"></i>
+        <i v-show="password_true_icon" class="icon iconfont icon-gou" style="color: #1cc29d;font-size: 15px"></i>
+      </p>
+      <p class="user">
+        <label>确认密码
+          <span>
+            <input type="password" @blur="passwordCheck()"
+                                              v-model="password_re" style="width:130px"
+                                              placeholder="请再次输入密码">
+          </span>
+        </label>
+        <i v-show="passr_false_icon" class="icon iconfont icon-chacha" style="color: #dc0000"></i>
+        <i v-show="passr_true_icon" class="icon iconfont icon-gou" style="color: #1cc29d;font-size: 15px"></i>
+      </p>
 
+      <p class="user">
+        <label>验证码
+          <span>
+            <input v-model="captcha" type="text" style="width:130px"
+                                             @blur="captcha_blur()"
+                                             placeholder="请在邮箱中获取">
+          </span>
+        </label>
+      </p>
+
+      <p v-show="show" class="get_yanzheng" @click="get_yanzheng()">获取验证码</p>
+      <p v-show="!show" class="get_yanzheng">{{count}} s后重试</p>
       <p class="tip_text">{{alertText}}</p>
       <div class="btn_login" @click="zhuCe">注&nbsp;&nbsp;&nbsp;册</div>
       <p class="p4">已有账号？ 去<span style="color:#0096da;cursor:pointer;" @click="gotoDenglu">登录</span></p>
@@ -25,7 +62,17 @@
       return{
         username:'',
         password:'',
-        password_re:''
+        password_re:'',
+        captcha:'',
+        email_true_icon:false,
+        email_false_icon:false,
+        password_false_icon:false,
+        password_true_icon:false,
+        passr_false_icon:false,
+        passr_true_icon:false,
+        show: true,
+        count: '',
+        timer: null,
       }
     },
     props: ['alertText'],
@@ -36,64 +83,158 @@
       gotoDenglu() {
         this.$emit('gotoDenglu','到了登录')
       },
-      passwordCheck(){
-        if(this.password !== this.password_re){
+      email(){
+        let email = this.username;
+        let reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/
+        if(!email){
+          this.email_true_icon = false
+          this.email_false_icon = true
           Toast({
-            message: '两次输入密码不一致',
-            duration: 2000
-          })
-          return
-        }
-      },
-      zhuCe() {
-        let vm = this
-        if(!vm.username){
-          Toast({
-            message: '请输入用户名',
+            message: '邮箱不能为空',
             duration: 1000
           })
           return
         }
-        if(!vm.password){
+        if(reg.test(email)){
+          //alert("邮箱格式正确");
+          this.email_true_icon = true
+          this.email_false_icon = false
+        }else{
+          this.email_true_icon = false
+          this.email_false_icon = true
+          Toast({
+            message: '邮箱格式不正确',
+            duration: 1000
+          })
+          return
+          //alert("邮箱格式不正确");
+        }
+      },
+      passwordL(){
+        let password = this.password
+        let reg = /^[a-zA-Z0-9]{6,18}$/
+        if(!password){
+          this.password_true_icon = false
+          this.password_false_icon = true
           Toast({
             message: '请输入密码',
             duration: 1000
           })
           return
         }
-        if(!vm.password_re){
+        if(reg.test(password)){
+          this.password_true_icon = true
+          this.password_false_icon = false
+          //alert("长度ok");
+        }else{
+          //alert("长度不对");
+          this.password_true_icon = false
+          this.password_false_icon = true
           Toast({
-            message: '请确认密码',
+            message: '请输入正确的密码长度',
             duration: 1000
           })
           return
         }
+      },
+      passwordCheck(){
         if(this.password !== this.password_re){
+          this.passr_false_icon = true
+          this.passr_true_icon = false
           Toast({
             message: '两次输入密码不一致',
             duration: 2000
+          })
+        }else if(this.password === this.password_re && this.password !==''){
+          this.passr_false_icon = false
+          this.passr_true_icon = true
+        }else {
+          this.passr_false_icon = true
+          this.passr_true_icon = false
+        }
+      },
+      captcha_blur(){
+        if(!this.captcha){
+          Toast({
+            message: '请输入验证码',
+            duration: 1500
+          })
+          return
+        }
+      },
+      get_yanzheng(){
+        let vm = this
+        let getCaptchaData = {
+          email:vm.username,
+          businessType:1
+        }
+        vm.getAjaxRequest('GET', url_api+'/person/captcha', getCaptchaData,
+          true, getCaptcha, null)
+        function getCaptcha(res){
+          if(res.head.status.code==200){
+            Toast({
+              message: '请登录邮箱获取验证码',
+              duration: 3000
+            })
+          }else {
+            Toast({
+              message: res.head.status.message,
+              duration: 3000
+            })
+          }
+        }
+        //console.log('发送了')
+        const TIME_COUNT = 60;
+        if (!this.timer) {
+          this.count = TIME_COUNT;
+          this.show = false;
+          this.timer = setInterval(() => {
+            if (this.count > 0 && this.count <= TIME_COUNT) {
+              this.count--;
+            } else {
+              this.show = true;
+              clearInterval(this.timer);
+              this.timer = null;
+            }
+          }, 1000)
+        }
+
+      },
+      zhuCe() {
+        let vm = this
+        if(vm.email_false_icon || vm.password_false_icon || vm.passr_false_icon){
+          return
+        }
+        vm.email()
+        if(!vm.captcha){
+          Toast({
+            message: '请输入验证码',
+            duration: 1500
           })
           return
         }
         let dataZhuce = {
           email:vm.username,
-          password:vm.password
+          password:vm.password,
+          captcha:vm.captcha
         }
-        let dataZhuceGeo = {
+        /*let dataZhuceGeo = {
           "email":vm.username,
           "password":hex_sha1(vm.password)
-        }
+        }*/
 
         vm.getAjaxRequest('POST', url_api+'/person/register/commit', dataZhuce,
           true, addUser, null)
 
         function addUser (res){
-          console.log(res)
+          //console.log(res)
           if(res.head.status.code ==200){
             Toast({
               message: '注册成功',
               duration: 2000
             })
+            setTimeout(vm.gotoDenglu,2000)
+
           }else {
             Toast({
               message: res.head.status.message,
@@ -102,7 +243,7 @@
           }
         }
         //注册极海
-        let loginAdmin = $.ajax({
+        /*let loginAdmin = $.ajax({
           type: "POST",
           url: url_api_geo + "/cloud/sign/signin",
           contentType: "application/json;charset=utf-8",
@@ -136,7 +277,7 @@
             }
           });
         }
-        $.when(loginAdmin).done(zhuCeGeo())
+        $.when(loginAdmin).done(zhuCeGeo())*/
       },
 
     }
@@ -169,7 +310,7 @@
       left: 50%;
       transform translate(-50%,-50%)
       width: 300px;
-      height 380px;
+      height 430px;
       animation: transform tipMove .4s;
       background-color: #e7e7e8;
       border: 1px;
@@ -183,7 +324,7 @@
         border-radius 50%
         background #0096da
         color #fff
-        line-height 40px
+        line-height 42px
         text-align center
         cursor pointer
       .guan:hover
@@ -194,6 +335,7 @@
         text-align center
         color #008cc0
       .user
+        position relative
         width 220px
         height 30px
         background #f3f3f4
@@ -207,13 +349,31 @@
           font-size 16px
           color #008cc0
           margin 0 8px
-          input
-            width 160px
-            height 22px
-            margin-left 5px
-            border none
-            background transparent
-
+          span
+            display inline-block
+            input
+              width 160px
+              height 22px
+              margin-left 5px
+              border none
+              background transparent
+              font-size 14px
+            input::-webkit-input-placeholder
+              color #b0b0b0
+        i
+          position absolute
+          top 7px
+          right -24px
+      .get_yanzheng
+        width 84px
+        height 26px
+        background #00abed
+        line-height 26px
+        border-radius 5px
+        color white
+        text-align center
+        margin-left 176px
+        cursor pointer
       .p3
         width 220px
         height 24px
@@ -248,7 +408,7 @@
         line-height 30px
         text-align center
         color #f3f3f4
-        margin 60px auto 20px
+        margin 42px auto 20px
         background #00a0db
         border-radius 5px
         box-shadow 0 2px 16px -1px #0084b5

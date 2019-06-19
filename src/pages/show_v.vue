@@ -90,7 +90,8 @@
       <div style="position:relative;">
         <div id="map_animation" class="map_animation" v-show="map_show">
           <MapZhuanti v-bind:map_url="map_url" v-bind:selected_layers="selected_layers"
-                      v-bind:center_zhuanti="specialDetails"
+                      v-bind:center_zhuanti="specialDetails" v-bind:map_geo_show="map_geo_show"
+                      v-on:closeBig="closeBig" v-bind:index_geo="index_geo"
               ref="map_play">
           </MapZhuanti>
         </div>
@@ -174,6 +175,8 @@
         map_url:[],
         map_url_name:[],
 
+        map_geo_show:true,
+        index_geo:-1
       }
     },
     components:{
@@ -191,8 +194,10 @@
       },
       _specialDetails(x){
         let vm = this
+        vm.index_geo = x
         vm.specialDetails = x
         vm.map_show = true
+        vm.map_geo_show = true
         if(x !== 0){
           $('Header').css('display','none')
           //图片
@@ -292,8 +297,12 @@
         let speed_time = $('input[name=s]:checked').val() * 1
         $('.show_set,.zhe,.pdf_wrap').css('display','none')
         this.map_show = true
-        this.$refs.map_play.child_map_play(speed_time);
+        this.$refs.map_play.child_map_play(speed_time)
+        this.map_geo_show = false
       },
+      closeBig(data){
+        this.map_geo_show = data
+      }
 
     },
     mounted(){

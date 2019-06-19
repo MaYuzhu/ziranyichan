@@ -119,7 +119,7 @@
       }
       var accordion = new Accordion($('#accordion'), false);
       //判断登录
-      var user = Cookies.get("token")
+      var user = Cookies.get("user_name")
       if(user){
         this.isLogin = true
       }

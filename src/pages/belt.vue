@@ -71,7 +71,7 @@
                   id="myiframe5" scrolling="yes" frameborder="0"></iframe>
         </div>
         <div v-if="curr==6">
-          <iframe src="https://geohey.com/apps/dataviz/c16b85d5993b4df5ab8cd87e786e7a90/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
+          <iframe src="https://geohey.com/apps/dataviz/aba78e28e632460588f24a229a95ee67/share?ak=NThmMTQxYTljMjQ3NDZiZTk0YTM4MWU5YzEzN2RlOWY"
                   id="myiframe6" scrolling="yes" frameborder="0"></iframe>
         </div>
         <div class="right_belt7" v-if="curr==7">
