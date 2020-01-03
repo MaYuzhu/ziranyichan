@@ -1,0 +1,955 @@
+[
+  {
+    "name": "despUtil",
+    "children": [
+      {
+        "name": "despUtil.axisLabel",
+        "children": [
+          {
+            "name": "despUtil.axisLabel.show",
+            "value": 444
+          },
+          {
+            "name": "despUtil.axisLabel.interval",
+            "value": 950
+          },
+          {
+            "name": "despUtil.axisLabel.rotate",
+            "value": 584
+          },
+          {
+            "name": "despUtil.axisLabel.inside",
+            "value": 416
+          },
+          {
+            "name": "despUtil.axisLabel.formatter",
+            "value": 886
+          },
+          {
+            "name": "despUtil.axisLabel.textStyle",
+            "children": [
+              {
+                "name": "despUtil.axisLabel.textStyle.color",
+                "value": 142
+              },
+              {
+                "name": "despUtil.axisLabel.textStyle.fontStyle",
+                "value": 107
+              },
+              {
+                "name": "despUtil.axisLabel.textStyle.fontWeight",
+                "value": 73
+              },
+              {
+                "name": "despUtil.axisLabel.textStyle.fontFamily",
+                "value": 68
+              },
+              {
+                "name": "despUtil.axisLabel.textStyle.fontSize",
+                "value": 128
+              },
+              {
+                "name": "despUtil.axisLabel.textStyle",
+                "value": 490
+              }
+            ]
+          },
+          {
+            "name": "despUtil.axisLabel.margin",
+            "value": 456
+          },
+          {
+            "name": "despUtil.axisLabel",
+            "value": 2534
+          }
+        ]
+      },
+      {
+        "name": "despUtil.axisLine",
+        "children": [
+          {
+            "name": "despUtil.axisLine.lineStyle",
+            "children": [
+              {
+                "name": "despUtil.axisLine.lineStyle.width",
+                "value": 158
+              },
+              {
+                "name": "despUtil.axisLine.lineStyle.shadowBlur",
+                "value": 126
+              },
+              {
+                "name": "despUtil.axisLine.lineStyle.color",
+                "value": 244
+              },
+              {
+                "name": "despUtil.axisLine.lineStyle.type",
+                "value": 185
+              },
+              {
+                "name": "despUtil.axisLine.lineStyle.shadowColor",
+                "value": 103
+              },
+              {
+                "name": "despUtil.axisLine.lineStyle.opacity",
+                "value": 125
+              },
+              {
+                "name": "despUtil.axisLine.lineStyle.shadowOffsetX",
+                "value": 72
+              },
+              {
+                "name": "despUtil.axisLine.lineStyle.shadowOffsetY",
+                "value": 57
+              },
+              {
+                "name": "despUtil.axisLine.lineStyle",
+                "value": 616
+              }
+            ]
+          },
+          {
+            "name": "despUtil.axisLine.show",
+            "value": 494
+          },
+          {
+            "name": "despUtil.axisLine.onZero",
+            "value": 465
+          },
+          {
+            "name": "despUtil.axisLine",
+            "value": 2303
+          }
+        ]
+      },
+      {
+        "name": "despUtil.boundaryGap",
+        "value": 2319
+      },
+      {
+        "name": "despUtil.interval",
+        "value": 1738
+      },
+      {
+        "name": "despUtil.type",
+        "value": 3544
+      },
+      {
+        "name": "despUtil.position",
+        "value": 2285
+      },
+      {
+        "name": "despUtil.splitNumber",
+        "value": 1817
+      },
+      {
+        "name": "despUtil.splitLine",
+        "children": [
+          {
+            "name": "despUtil.splitLine.interval",
+            "value": 273
+          },
+          {
+            "name": "despUtil.splitLine.lineStyle",
+            "children": [
+              {
+                "name": "despUtil.splitLine.lineStyle.color",
+                "value": 131
+              },
+              {
+                "name": "despUtil.splitLine.lineStyle.shadowBlur",
+                "value": 42
+              },
+              {
+                "name": "despUtil.splitLine.lineStyle.shadowColor",
+                "value": 31
+              },
+              {
+                "name": "despUtil.splitLine.lineStyle.type",
+                "value": 97
+              },
+              {
+                "name": "despUtil.splitLine.lineStyle.opacity",
+                "value": 58
+              },
+              {
+                "name": "despUtil.splitLine.lineStyle.shadowOffsetX",
+                "value": 23
+              },
+              {
+                "name": "despUtil.splitLine.lineStyle.width",
+                "value": 67
+              },
+              {
+                "name": "despUtil.splitLine.lineStyle.shadowOffsetY",
+                "value": 22
+              },
+              {
+                "name": "despUtil.splitLine.lineStyle",
+                "value": 250
+              }
+            ]
+          },
+          {
+            "name": "despUtil.splitLine.show",
+            "value": 217
+          },
+          {
+            "name": "despUtil.splitLine",
+            "value": 1565
+          }
+        ]
+      },
+      {
+        "name": "despUtil.name",
+        "value": 1777
+      },
+      {
+        "name": "despUtil.data",
+        "children": [
+          {
+            "name": "despUtil.data.value",
+            "value": 769
+          },
+          {
+            "name": "despUtil.data.textStyle",
+            "children": [
+              {
+                "name": "despUtil.data.textStyle.align",
+                "value": 178
+              },
+              {
+                "name": "despUtil.data.textStyle.baseline",
+                "value": 182
+              },
+              {
+                "name": "despUtil.data.textStyle.fontStyle",
+                "value": 90
+              },
+              {
+                "name": "despUtil.data.textStyle.color",
+                "value": 146
+              },
+              {
+                "name": "despUtil.data.textStyle.fontWeight",
+                "value": 70
+              },
+              {
+                "name": "despUtil.data.textStyle.fontFamily",
+                "value": 67
+              },
+              {
+                "name": "despUtil.data.textStyle.fontSize",
+                "value": 84
+              },
+              {
+                "name": "despUtil.data.textStyle",
+                "value": 454
+              }
+            ]
+          },
+          {
+            "name": "despUtil.data",
+            "value": 1726
+          }
+        ]
+      },
+      {
+        "name": "despUtil.max",
+        "value": 947
+      },
+      {
+        "name": "despUtil.axisTick",
+        "children": [
+          {
+            "name": "despUtil.axisTick.interval",
+            "value": 446
+          },
+          {
+            "name": "despUtil.axisTick.length",
+            "value": 270
+          },
+          {
+            "name": "despUtil.axisTick.show",
+            "value": 283
+          },
+          {
+            "name": "despUtil.axisTick.lineStyle",
+            "children": [
+              {
+                "name": "despUtil.axisTick.lineStyle.color",
+                "value": 109
+              },
+              {
+                "name": "despUtil.axisTick.lineStyle.width",
+                "value": 59
+              },
+              {
+                "name": "despUtil.axisTick.lineStyle.type",
+                "value": 61
+              },
+              {
+                "name": "despUtil.axisTick.lineStyle.shadowBlur",
+                "value": 40
+              },
+              {
+                "name": "despUtil.axisTick.lineStyle.opacity",
+                "value": 36
+              },
+              {
+                "name": "despUtil.axisTick.lineStyle.shadowOffsetY",
+                "value": 18
+              },
+              {
+                "name": "despUtil.axisTick.lineStyle.shadowOffsetX",
+                "value": 21
+              },
+              {
+                "name": "despUtil.axisTick.lineStyle.shadowColor",
+                "value": 33
+              },
+              {
+                "name": "despUtil.axisTick.lineStyle",
+                "value": 290
+              }
+            ]
+          },
+          {
+            "name": "despUtil.axisTick.inside",
+            "value": 225
+          },
+          {
+            "name": "despUtil.axisTick",
+            "value": 1752
+          }
+        ]
+      },
+      {
+        "name": "despUtil.splitArea",
+        "children": [
+          {
+            "name": "despUtil.splitArea.interval",
+            "value": 224
+          },
+          {
+            "name": "despUtil.splitArea.show",
+            "value": 120
+          },
+          {
+            "name": "despUtil.splitArea.areaStyle",
+            "children": [
+              {
+                "name": "despUtil.splitArea.areaStyle.color",
+                "value": 151
+              },
+              {
+                "name": "despUtil.splitArea.areaStyle.shadowBlur",
+                "value": 62
+              },
+              {
+                "name": "despUtil.splitArea.areaStyle.shadowColor",
+                "value": 45
+              },
+              {
+                "name": "despUtil.splitArea.areaStyle.shadowOffsetX",
+                "value": 37
+              },
+              {
+                "name": "despUtil.splitArea.areaStyle.shadowOffsetY",
+                "value": 26
+              },
+              {
+                "name": "despUtil.splitArea.areaStyle.opacity",
+                "value": 49
+              },
+              {
+                "name": "despUtil.splitArea.areaStyle",
+                "value": 231
+              }
+            ]
+          },
+          {
+            "name": "despUtil.splitArea",
+            "value": 1020
+          }
+        ]
+      },
+      {
+        "name": "despUtil.nameTextStyle",
+        "children": [
+          {
+            "name": "despUtil.nameTextStyle.color",
+            "value": 410
+          },
+          {
+            "name": "despUtil.nameTextStyle.fontSize",
+            "value": 213
+          },
+          {
+            "name": "despUtil.nameTextStyle.fontStyle",
+            "value": 243
+          },
+          {
+            "name": "despUtil.nameTextStyle.fontWeight",
+            "value": 170
+          },
+          {
+            "name": "despUtil.nameTextStyle.fontFamily",
+            "value": 149
+          },
+          {
+            "name": "despUtil.nameTextStyle",
+            "value": 1870
+          }
+        ]
+      },
+      {
+        "name": "despUtil.inverse",
+        "value": 1362
+      },
+      {
+        "name": "despUtil.nameLocation",
+        "value": 1729
+      },
+      {
+        "name": "despUtil.gridIndex",
+        "value": 2271
+      },
+      {
+        "name": "despUtil.scale",
+        "value": 1456
+      },
+      {
+        "name": "despUtil.min",
+        "value": 1339
+      },
+      {
+        "name": "despUtil.nameGap",
+        "value": 1647
+      },
+      {
+        "name": "despUtil.silent",
+        "value": 424
+      },
+      {
+        "name": "despUtil",
+        "value": 11102
+      }
+    ]
+  },
+  {
+    "name": "despChart",
+    "children": [
+      {
+        "name": "despChart.showContent",
+        "value": 1374
+      },
+      {
+        "name": "despChart.formatter",
+        "value": 3594
+      },
+      {
+        "name": "despChart.trigger",
+        "value": 2845
+      },
+      {
+        "name": "despChart.enterable",
+        "value": 746
+      },
+      {
+        "name": "despChart.position",
+        "value": 1204
+      },
+      {
+        "name": "despChart.transitionDuration",
+        "value": 774
+      },
+      {
+        "name": "despChart.axisPointer",
+        "children": [
+          {
+            "name": "despChart.axisPointer.type",
+            "value": 478
+          },
+          {
+            "name": "despChart.axisPointer.axis",
+            "value": 297
+          },
+          {
+            "name": "despChart.axisPointer.animation",
+            "value": 189
+          },
+          {
+            "name": "despChart.axisPointer.animationEasingUpdate",
+            "value": 79
+          },
+          {
+            "name": "despChart.axisPointer.crossStyle",
+            "children": [
+              {
+                "name": "despChart.axisPointer.crossStyle.width",
+                "value": 31
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle.textStyle",
+                "children": [
+                  {
+                    "name": "despChart.axisPointer.crossStyle.textStyle.color",
+                    "value": 10
+                  },
+                  {
+                    "name": "despChart.axisPointer.crossStyle.textStyle.fontWeight",
+                    "value": 9
+                  },
+                  {
+                    "name": "despChart.axisPointer.crossStyle.textStyle.fontFamily",
+                    "value": 10
+                  },
+                  {
+                    "name": "despChart.axisPointer.crossStyle.textStyle.fontSize",
+                    "value": 11
+                  },
+                  {
+                    "name": "despChart.axisPointer.crossStyle.textStyle.fontStyle",
+                    "value": 10
+                  },
+                  {
+                    "name": "despChart.axisPointer.crossStyle.textStyle",
+                    "value": 25
+                  }
+                ]
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle.type",
+                "value": 43
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle.opacity",
+                "value": 26
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle.shadowBlur",
+                "value": 34
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle.color",
+                "value": 44
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle.shadowColor",
+                "value": 24
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle.shadowOffsetX",
+                "value": 21
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle.shadowOffsetY",
+                "value": 20
+              },
+              {
+                "name": "despChart.axisPointer.crossStyle",
+                "value": 142
+              }
+            ]
+          },
+          {
+            "name": "despChart.axisPointer.lineStyle",
+            "children": [
+              {
+                "name": "despChart.axisPointer.lineStyle.shadowBlur",
+                "value": 33
+              },
+              {
+                "name": "despChart.axisPointer.lineStyle.opacity",
+                "value": 45
+              },
+              {
+                "name": "despChart.axisPointer.lineStyle.type",
+                "value": 73
+              },
+              {
+                "name": "despChart.axisPointer.lineStyle.color",
+                "value": 62
+              },
+              {
+                "name": "despChart.axisPointer.lineStyle.shadowOffsetY",
+                "value": 24
+              },
+              {
+                "name": "despChart.axisPointer.lineStyle.shadowOffsetX",
+                "value": 21
+              },
+              {
+                "name": "despChart.axisPointer.lineStyle.shadowColor",
+                "value": 23
+              },
+              {
+                "name": "despChart.axisPointer.lineStyle.width",
+                "value": 31
+              },
+              {
+                "name": "despChart.axisPointer.lineStyle",
+                "value": 208
+              }
+            ]
+          },
+          {
+            "name": "despChart.axisPointer.shadowStyle",
+            "children": [
+              {
+                "name": "despChart.axisPointer.shadowStyle.color",
+                "value": 47
+              },
+              {
+                "name": "despChart.axisPointer.shadowStyle.shadowBlur",
+                "value": 29
+              },
+              {
+                "name": "despChart.axisPointer.shadowStyle.shadowColor",
+                "value": 22
+              },
+              {
+                "name": "despChart.axisPointer.shadowStyle.opacity",
+                "value": 26
+              },
+              {
+                "name": "despChart.axisPointer.shadowStyle.shadowOffsetX",
+                "value": 21
+              },
+              {
+                "name": "despChart.axisPointer.shadowStyle.shadowOffsetY",
+                "value": 14
+              },
+              {
+                "name": "despChart.axisPointer.shadowStyle",
+                "value": 127
+              }
+            ]
+          },
+          {
+            "name": "despChart.axisPointer.animationEasing",
+            "value": 80
+          },
+          {
+            "name": "despChart.axisPointer.animationDuration",
+            "value": 84
+          },
+          {
+            "name": "despChart.axisPointer.animationDurationUpdate",
+            "value": 65
+          },
+          {
+            "name": "despChart.axisPointer",
+            "value": 1507
+          }
+        ]
+      },
+      {
+        "name": "despChart.show",
+        "value": 1805
+      },
+      {
+        "name": "despChart.alwaysShowContent",
+        "value": 905
+      },
+      {
+        "name": "despChart.backgroundColor",
+        "value": 701
+      },
+      {
+        "name": "despChart.extraCssText",
+        "value": 670
+      },
+      {
+        "name": "despChart.triggerOn",
+        "value": 1273
+      },
+      {
+        "name": "despChart.hideDelay",
+        "value": 693
+      },
+      {
+        "name": "despChart.textStyle",
+        "children": [
+          {
+            "name": "despChart.textStyle.fontWeight",
+            "value": 77
+          },
+          {
+            "name": "despChart.textStyle.fontFamily",
+            "value": 70
+          },
+          {
+            "name": "despChart.textStyle.color",
+            "value": 132
+          },
+          {
+            "name": "despChart.textStyle.fontStyle",
+            "value": 89
+          },
+          {
+            "name": "despChart.textStyle.fontSize",
+            "value": 84
+          },
+          {
+            "name": "despChart.textStyle",
+            "value": 747
+          }
+        ]
+      },
+      {
+        "name": "despChart.padding",
+        "value": 453
+      },
+      {
+        "name": "despChart.borderWidth",
+        "value": 395
+      },
+      {
+        "name": "despChart.borderColor",
+        "value": 449
+      },
+      {
+        "name": "despChart.showDelay",
+        "value": 187
+      },
+      {
+        "name": "despChart",
+        "value": 9002
+      }
+    ]
+  },
+  {
+    "name": "despCore",
+    "children": [
+      {
+        "name": "despCore.show",
+        "value": 1883
+      },
+      {
+        "name": "despCore.textStyle",
+        "children": [
+          {
+            "name": "despCore.textStyle.fontStyle",
+            "value": 458
+          },
+          {
+            "name": "despCore.textStyle.fontWeight",
+            "value": 452
+          },
+          {
+            "name": "despCore.textStyle.fontSize",
+            "value": 467
+          },
+          {
+            "name": "despCore.textStyle.fontFamily",
+            "value": 371
+          },
+          {
+            "name": "despCore.textStyle.color",
+            "value": 599
+          },
+          {
+            "name": "despCore.textStyle",
+            "value": 1716
+          }
+        ]
+      },
+      {
+        "name": "despCore.text",
+        "value": 1651
+      },
+      {
+        "name": "despCore.left",
+        "value": 1135
+      },
+      {
+        "name": "despCore.target",
+        "value": 918
+      },
+      {
+        "name": "despCore.link",
+        "value": 947
+      },
+      {
+        "name": "despCore.sublink",
+        "value": 527
+      },
+      {
+        "name": "despCore.backgroundColor",
+        "value": 542
+      },
+      {
+        "name": "despCore.subtext",
+        "value": 1054
+      },
+      {
+        "name": "despCore.subtarget",
+        "value": 483
+      },
+      {
+        "name": "despCore.itemGap",
+        "value": 659
+      },
+      {
+        "name": "despCore.padding",
+        "value": 904
+      },
+      {
+        "name": "despCore.bottom",
+        "value": 504
+      },
+      {
+        "name": "despCore.z",
+        "value": 442
+      },
+      {
+        "name": "despCore.zlevel",
+        "value": 546
+      },
+      {
+        "name": "despCore.borderWidth",
+        "value": 343
+      },
+      {
+        "name": "despCore.top",
+        "value": 706
+      },
+      {
+        "name": "despCore.right",
+        "value": 459
+      },
+      {
+        "name": "despCore.shadowBlur",
+        "value": 396
+      },
+      {
+        "name": "despCore.subtextStyle",
+        "children": [
+          {
+            "name": "despCore.subtextStyle.color",
+            "value": 234
+          },
+          {
+            "name": "despCore.subtextStyle.fontSize",
+            "value": 106
+          },
+          {
+            "name": "despCore.subtextStyle.fontWeight",
+            "value": 95
+          },
+          {
+            "name": "despCore.subtextStyle.fontFamily",
+            "value": 84
+          },
+          {
+            "name": "despCore.subtextStyle.fontStyle",
+            "value": 96
+          },
+          {
+            "name": "despCore.subtextStyle",
+            "value": 881
+          }
+        ]
+      },
+      {
+        "name": "despCore.shadowColor",
+        "value": 321
+      },
+      {
+        "name": "despCore.shadowOffsetX",
+        "value": 279
+      },
+      {
+        "name": "despCore.shadowOffsetY",
+        "value": 243
+      },
+      {
+        "name": "despCore.borderColor",
+        "value": 402
+      },
+      {
+        "name": "despCore",
+        "value": 6510
+      }
+    ]
+  },
+  {
+    "name": "despAna",
+    "children": [
+      {
+        "name": "despAna.top",
+        "value": 776
+      },
+      {
+        "name": "despAna.left",
+        "value": 1048
+      },
+      {
+        "name": "despAna.containLabel",
+        "value": 1214
+      },
+      {
+        "name": "despAna.shadowOffsetY",
+        "value": 235
+      },
+      {
+        "name": "despAna.backgroundColor",
+        "value": 737
+      },
+      {
+        "name": "despAna.borderColor",
+        "value": 631
+      },
+      {
+        "name": "despAna.z",
+        "value": 466
+      },
+      {
+        "name": "despAna.zlevel",
+        "value": 608
+      },
+      {
+        "name": "despAna.borderWidth",
+        "value": 518
+      },
+      {
+        "name": "despAna.show",
+        "value": 1542
+      },
+      {
+        "name": "despAna.right",
+        "value": 581
+      },
+      {
+        "name": "despAna.width",
+        "value": 715
+      },
+      {
+        "name": "despAna.bottom",
+        "value": 561
+      },
+      {
+        "name": "despAna.height",
+        "value": 544
+      },
+      {
+        "name": "despAna.shadowOffsetX",
+        "value": 327
+      },
+      {
+        "name": "despAna.shadowBlur",
+        "value": 420
+      },
+      {
+        "name": "despAna.shadowColor",
+        "value": 356
+      },
+      {
+        "name": "despAna",
+        "value": 10519
+      }
+    ]
+  }
+]

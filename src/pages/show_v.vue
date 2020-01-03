@@ -228,6 +228,7 @@
           $('Header').css('display','block')
         }
         function getPic(json){
+          console.log(json.body)
           vm.picture_url = []
           //console.log(json)
           let data_lenght = json.body.results.length

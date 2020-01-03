@@ -198,6 +198,7 @@
         height 512px
       >div
         .list_person
+          display block
           >p
             width 100px
             height 30px
@@ -209,6 +210,7 @@
             line-height 30px
             margin 20px auto
             cursor pointer
+            padding 0
           .zhang_deng
             display flex
             justify-content space-around
@@ -229,13 +231,12 @@
               background: linear-gradient(to right,rgba( 225, 138, 58 ,1),rgba(  225, 138, 58 ,0))
             .p_zheng
               background: linear-gradient(to right,rgba( 87, 163, 255 ,1),rgba(  87, 163, 255 ,0))
-
-        .zhangqian,.zhenghe
-          width 98%
-          height 512px
-          #myiframe4_a,#myiframe4_b
-            width 100%
-            height 100%
+            /*.zhangqian,.zhenghe
+              width 98%
+              height 512px*/
+            #myiframe4_a,#myiframe4_b
+              width 100%
+              height 100%
 
 
       .right_belt7
@@ -258,6 +259,8 @@
           border 2px solid #3381c5
           transform translate(0,-2px)
           z-index 1
+          height auto
+          display block
         .air_pollution
           width 100%
           height 506px

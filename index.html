@@ -36,5 +36,26 @@
 
   <script type="text/javascript" src="./static/js/jqery_form.js"></script>
 
+  <script>
+      function download() {
+        var url = 'http://192.168.1.139:8080/'
+        var currentText = event.srcElement.parentElement.previousElementSibling.textContent.toString();
+        console.log(currentText)
+        var form = $("<form>");   //定义一个form表单
+        form.attr('style', 'display:none');   //在form表单中添加查询参数
+        form.attr('target', '');
+        form.attr('method', 'get');
+        form.attr('action', url + "downloadFile");
+
+        var input1 = $('<input>');
+        input1.attr('type', 'hidden');
+        input1.attr('name', 'fileName');
+        input1.attr('value', "" + currentText);
+        $('body').append(form);  //将表单放置在web中
+        form.append(input1);   //将查询参数控件提交到表单上
+        form.submit();
+
+      }
+  </script>
 
 </html>

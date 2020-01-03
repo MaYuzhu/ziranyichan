@@ -1,0 +1,675 @@
+[
+
+
+  {
+      "title": "一带一路",
+      "expand": true,
+      "children": [
+		{
+			"title": "遗产",
+			"children":[
+				{
+          "title": "世界遗产数据",
+          "expand": true,
+          "children":[
+            {
+              "title": "遗产点",
+              "flyToRec": "47.4609,60.9082,139.9219,9.2285",
+              "layer": {
+                "name": "遗产点",
+                "legend": {
+                  "force":true,
+                  "href": "/static/dist/assets/img/legend/dian.png",
+                  "height": 151,
+                  "width": 162
+
+                },
+                "layerOptions": [
+                  {
+                    "type": "wms",
+                    "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                    "layers": "heritage:WorldHeritageSites",
+                    "parameters": {
+                      "transparent": true,
+                      "format": "image/png",
+                      "srs": "EPSG:4326",
+                      "service": "WMS"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "遗产面",
+              "flyToRec": "47.4609,60.9082,139.9219,9.2285",
+              "layer": {
+                "name": "遗产面",
+                "legend": {
+                    "force":true,
+                    "href": "/static/dist/assets/img/legend/mian.png",
+                    "width": 151,
+                    "height": 214
+
+                },
+                "layerOptions": [
+                  {
+                    "type": "wms",
+                    "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                    "layers": "heritage:whc_boundary",
+                    "parameters": {
+                      "transparent": true,
+                      "format": "image/png",
+                      "srs": "EPSG:4326",
+                      "service": "WMS"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+
+        },
+        {
+          "title": "历史线路及城镇数据",
+          "expand": true,
+          "children":[
+            {
+              "title": "陆上丝路",
+              "children":[
+                {
+                  "title": "Places",
+                  "flyToRec": "43.7891, 55.4590, 126.3184, 24.4336",
+                  "layer": {
+                    "name": "Places",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:SilkRoadLandPlaces",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "Routes",
+                  "flyToRec": "23.7891, 55.4590, 115.9517, 24.4336",
+                  "layer": {
+                    "name": "Routes",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:SilkRoadLandRoutes",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "title": "海上丝路",
+              "children":[
+                {
+                  "title": "Places",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "Places",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:SilkRoadSeaPlaces",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "Routes",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "Routes",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:SilkRoadSeaRoutes",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "title": "人物专题",
+              "children":[
+                {
+                  "title": "伊本白图泰Places",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "伊本白图泰Places",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:YibenbaiPlaces",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "伊本白图泰Routes",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "伊本白图泰Routes",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:YibenbaiRoutes",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "张骞1st_Places",
+                  "flyToRec": "43.7891, 55.4590, 126.3184, 24.4336",
+                  "layer": {
+                    "name": "张骞1st_Places",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhangqianSR1stPlaces",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "张骞1st_Routes",
+                  "flyToRec": "43.7891, 55.4590, 126.3184, 24.4336",
+                  "layer": {
+                    "name": "张骞1st_Routes",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhangqianSR1stRoutes",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "张骞2nd_Places",
+                  "flyToRec": "43.7891, 55.4590, 126.3184, 24.4336",
+                  "layer": {
+                    "name": "张骞2nd_Places",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhangqianSR2ndPlaces",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "张骞2nd_Routes",
+                  "flyToRec": "43.7891, 55.4590, 126.3184, 24.4336",
+                  "layer": {
+                    "name": "张骞2nd_Routes",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhangqianSR2ndRoutes",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "玄奘Routes",
+                  "flyToRec": "43.7891, 45.4590, 126.3184, 14.4336",
+                  "layer": {
+                    "name": "玄奘Routes",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:XuanzangRoutes",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "赫定Places",
+                  "flyToRec": "43.7891, 55.4590, 126.3184, 24.4336",
+                  "layer": {
+                    "name": "赫定Places",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:Hedin-I-2012-Places",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "赫定1Routes",
+                  "flyToRec": "43.7891, 55.4590, 126.3184, 24.4336",
+                  "layer": {
+                    "name": "赫定1Routes",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:Hedin-I-2012-Routes-part1",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "赫定2Routes",
+                  "flyToRec": "43.7891, 55.4590, 126.3184, 24.4336",
+                  "layer": {
+                    "name": "赫定2Routes",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:Hedin-I-2012-Routes-part2",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "郑和Places",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "郑和Places",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhengheXiaXiyang-Places",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "郑和1st",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "郑和1st",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhengheXiaXiyangSR-1st",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "郑和2nd",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "郑和2nd",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhengheXiaXiyangSR-2nd",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "郑和3rd",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "郑和3rd",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhengheXiaXiyangSR-3rd",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "郑和4th",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "郑和4th",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhengheXiaXiyangSR-4th",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "郑和5th",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "郑和5th",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhengheXiaXiyangSR-5th",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "郑和6th",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "郑和6th",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhengheXiaXiyangSR-6th",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "title": "郑和7th",
+                  "flyToRec": "23.4961, 43.4180, 127.4492, -14.4336",
+                  "layer": {
+                    "name": "郑和7th",
+                    "layerOptions": [
+                      {
+                        "type": "wms",
+                        "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                        "layers": "heritage:ZhengheXiaXiyangSR-7th",
+                        "parameters": {
+                          "transparent": true,
+                          "format": "image/png",
+                          "srs": "EPSG:4326",
+                          "service": "WMS"
+                        }
+                      }
+                    ]
+                  }
+                }
+
+
+              ]
+            }
+          ]
+
+        },
+
+        {
+          "title": "无人机三维_长城",
+          "expand": true,
+          "children":[
+            {
+              "title": "MGW004_Ortho",
+              "flyToRec": "109.9643,38.4707,109.9908,38.4553",
+              "layer": {
+                "name": "MGW004-Ortho_ortho_part_1_1",
+                "layerOptions": [
+                  {
+                    "type": "wms",
+                    "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                    "layers": "heritage:MGW004-Ortho_ortho_part_1_1",
+                    "parameters": {
+                      "transparent": true,
+                      "format": "image/png",
+                      "srs": "EPSG:4326",
+                      "service": "WMS"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "MGW028_Ortho",
+              "flyToRec": "107.2139,37.9468,107.2354,37.9286",
+              "layer": {
+                "name": "MGW028-Tower-Ortho-whole_ortho_part_1_1",
+                "layerOptions": [
+                  {
+                    "type": "wms",
+                    "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                    "layers": "heritage:MGW028-Tower-Ortho-whole_ortho_part_1_1",
+                    "parameters": {
+                      "transparent": true,
+                      "format": "image/png",
+                      "srs": "EPSG:4326",
+                      "service": "WMS"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "MGW055b_Ortho",
+              "flyToRec": "101.3943,38.5488,101.4172,38.5310",
+              "layer": {
+                "name": "MGW055b-Ortho_ortho_part_1_1",
+                "layerOptions": [
+                  {
+                    "type": "wms",
+                    "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                    "layers": "heritage:MGW055b-Ortho_ortho_part_1_1",
+                    "parameters": {
+                      "transparent": true,
+                      "format": "image/png",
+                      "srs": "EPSG:4326",
+                      "service": "WMS"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "points",
+              "flyToRec": "47.4609,60.9082,139.9219,9.2285",
+              "layer": {
+                "name": "points",
+                "layerOptions": [
+                  {
+                    "type": "wms",
+                    "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                    "layers": "heritage:changcheng_polygon",
+                    "parameters": {
+                      "transparent": true,
+                      "format": "image/png",
+                      "srs": "EPSG:4326",
+                      "service": "WMS"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "line",
+              "flyToRec": "47.4609,60.9082,139.9219,9.2285",
+              "layer": {
+                "name": "line",
+                "layerOptions": [
+                  {
+                    "type": "wms",
+                    "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                    "layers": "heritage:changcheng_line",
+                    "parameters": {
+                      "transparent": true,
+                      "format": "image/png",
+                      "srs": "EPSG:4326",
+                      "service": "WMS"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "polygon",
+              "flyToRec": "47.4609,60.9082,139.9219,9.2285",
+              "layer": {
+                "name": "polygon",
+                "layerOptions": [
+                  {
+                    "type": "wms",
+                    "url": "http://36.110.66.202:8080/geoserver/heritage/wms",
+                    "layers": "heritage:changcheng_pt",
+                    "parameters": {
+                      "transparent": true,
+                      "format": "image/png",
+                      "srs": "EPSG:4326",
+                      "service": "WMS"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+
+        }
+			]
+		}
+
+
+      ]
+    }
+
+
+
+
+
+]

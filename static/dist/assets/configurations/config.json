@@ -1,0 +1,890 @@
+[
+  {
+    "id": "main",
+    "layers": [
+      {
+        "id": "main_1",
+        "zIndex": 0,
+        "widgets": [
+          {
+            "id": "Menu_1",
+            "type": "XMenu",
+            "targets": [],
+            "settings": {
+              "visible": true,
+              "draggable": false,
+              "transparent": true,
+              "closable": false,
+              "title": "Menu",
+              "showHeader": false,
+              "display": "pin",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": 2
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 2,
+                  "right": 2
+                },
+                "zIndex": 3
+              }
+            },
+            "config": {
+              "items": [
+
+                {
+                  "title": "数字遗产",
+                  "type": "action",
+                  "icon": "logo-buffer",
+                  "action": "layerManager.show()"
+                },
+                {
+                  "title": "时序数据",
+                  "type": "menu",
+                  "icon": "logo-buffer",
+                  "menu":[
+
+                    {
+                      "title": "不同时期丝路主导文明影响区范围(疆域区划)",
+                      "type": "action",
+                      "icon": "logo-buffer",
+                      "action": "KMLTimeImages_2.show()"
+                    }
+
+                  ]
+
+                },
+                {
+                  "title": "长城遗址点",
+                  "type": "menu",
+                  "icon": "ios-stats",
+                  "menu":[
+                    {
+                      "title": "长城遗址点MGW028-Tower",
+                      "type": "action",
+                      "icon": "ios-stats",
+                      "action": "OAP_4.show()"
+                    },
+                    {
+                      "title": "长城遗址点MGW048",
+                      "type": "action",
+                      "icon": "ios-stats",
+                      "action": "OAP_5.show()"
+                    },
+                    {
+                      "title": "长城遗址点MGW004",
+                      "type": "action",
+                      "icon": "ios-stats",
+                      "action": "OAP_6.show()"
+                    }
+
+                  ]
+                },
+
+
+
+
+
+                {
+                  "title": "动态丝路",
+                  "type": "menu",
+                  "icon": "md-eye",
+                  "menu": [
+
+                    {
+                      "title": "郑和第一次下西洋",
+                      "type": "action",
+                      "icon": "logo-buffer",
+                      "action": "zHLine_1.show()"
+                    },{
+                      "title": "郑和第七次下西洋",
+                      "type": "action",
+                      "icon": "logo-buffer",
+                      "action": "zHLine_7.show()"
+                    }
+
+                  ]
+                }
+
+              ]
+            }
+          },
+          {
+            "id": "Viewer_1",
+            "type": "Viewer",
+            "targets": [
+              "ViewPort_1",
+              "ExportMap_1",
+              "SystemSettings_1",
+              "chartsExplorer",
+              "Split_1",
+              "RandomCircle",
+              "baseLayerPicker",
+              "layerManager",
+              "KMLTimeImages_1",
+              "KMLTimeImages_2",
+              "split",
+              "BusLine_1",
+              "TestLine_1",
+              "TestLine_2",
+              "zHLine_1",
+              "zHLine_7",
+              "OAP_4",
+              "OAP_5",
+              "OAP_6",
+              "baseLayerPicker_1",
+              "charts_1"
+            ],
+            "settings": {
+              "visible": true,
+              "transparent": true,
+              "draggable": false,
+              "closable": false,
+              "title": "Viewer",
+              "showHeader": false,
+              "display": "lock",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 0,
+                  "right": 0
+                },
+                "zIndex": 1
+              }
+            },
+            "config": {
+              "infoBox":true
+            }
+          },
+          {
+            "id": "OAP_4",
+            "type": "OAP",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "always": false,
+              "draggable": true,
+              "closable": true,
+              "title": "倾斜摄影数据",
+              "showHeader": true,
+              "transparent": true,
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "80"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": 20
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "path": "http://124.16.184.93:8080/DATA/OAP/DBAR/MGW028-Tower_b3dm/tileset.json"
+            }
+          },
+          {
+            "id": "OAP_5",
+            "type": "OAP",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "always": false,
+              "draggable": true,
+              "closable": true,
+              "title": "倾斜摄影数据",
+              "showHeader": true,
+              "transparent": true,
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "80"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": 20
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "path": "http://124.16.184.93:8080/DATA/OAP/DBAR/MGW048_b3dm/tileset.json"
+            }
+          },
+          {
+            "id": "OAP_6",
+            "type": "OAP",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "always": false,
+              "draggable": true,
+              "closable": true,
+              "title": "倾斜摄影数据",
+              "showHeader": true,
+              "transparent": true,
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "80"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": 20
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "path": "http://124.16.184.93:8080/DATA/OAP/DBAR/MGW004_b3dm/tileset.json"
+            }
+          },
+
+          {
+            "id": "chartsExplorer",
+            "type": "dChartsExplorer",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": false,
+              "closable": true,
+              "title": "图表展览",
+              "showHeader": true,
+              "transparent": true,
+              "display": "solo",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 0,
+                  "right": 0
+                },
+                "zIndex": 5
+              }
+            },
+            "config": {
+            }
+          },
+          {
+            "id": "SystemSettings_1",
+            "type": "dSystemSettings",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "always": true,
+              "draggable": true,
+              "closable": true,
+              "title": "系统设置",
+              "showHeader": true,
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "250"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": 20
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+            }
+          },
+          {
+            "id": "ViewPort_1",
+            "type": "dViewPort",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "closable": true,
+              "title": "视点管理",
+              "showHeader": true,
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "250"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": "20"
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+            }
+          },
+          {
+            "id": "ExportMap_1",
+            "type": "dExportMap",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "closable": true,
+              "title": "地图导出",
+              "showHeader": true,
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "250"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": 20
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+            }
+          },
+          {
+            "id": "Split_1",
+            "type": "dSplit",
+            "targets": [
+              ""
+            ],
+            "settings": {
+              "visible": false,
+              "draggable": false,
+              "closable": false,
+              "title": "卷帘",
+              "showHeader": false,
+              "transparent": true,
+              "display": "solo",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 0,
+                  "right": 0
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+            }
+          },
+          {
+            "id": "RandomCircle",
+            "type": "dRandomCircle",
+            "targets": [
+              ""
+            ],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "closable": true,
+              "title": "圆特效",
+              "showHeader": true,
+              "transparent": false,
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "250"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": 5
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+            }
+          },
+          {
+            "id": "MultiMedia",
+            "type": "dMultiMedia",
+            "targets": [
+              ""
+            ],
+            "settings": {
+              "visible": false,
+              "transparent": true,
+              "display": "solo",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "right": 0,
+                  "left": 0
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+            }
+          },
+          {
+            "id": "baseLayerPicker",
+            "type": "BaseLayerPicker",
+            "targets": [],
+            "settings": {
+              "visible": true,
+              "draggable": false,
+              "closable": false,
+              "title": "baseLayerPicker",
+              "showHeader": false,
+              "transparent": true,
+              "display": "pin",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 0,
+                  "right": 0
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "defaultBaseLayerIndex": 0,
+              "baseLayerOptions": [
+                {
+                  "title": "天地图全球影像+注记地图",
+                  "thumbNail": "./assets/images/thumbNail/tianditu_img.png",
+                  "layer": {
+                    "layerFunctionName": "TiandituImgAndAnoLayer",
+                    "params": [
+                      "82d822a61cefc9898e63a0c51e933f5a"
+                    ]
+                  }
+                },
+                {
+                  "title": "天地图全球矢量地图",
+                  "thumbNail": "./assets/images/thumbNail/tianditu_vec.png",
+                  "layer": {
+                    "layerFunctionName": "TiandituVecLayer",
+                    "params": [
+                      "82d822a61cefc9898e63a0c51e933f5a"
+                    ]
+                  }
+                },
+                {
+                  "title": "天地图全球地形晕渲地图",
+                  "thumbNail": "./assets/images/thumbNail/tianditu_terrain.png",
+                  "layer": {
+                    "layerFunctionName": "TiandituTerrainLayer",
+                    "params": [
+                      "82d822a61cefc9898e63a0c51e933f5a"
+                    ]
+                  }
+                },
+                {
+                  "title": "谷歌影像图",
+                  "thumbNail": "./assets/images/thumbNail/google_img.png",
+                  "layer": {
+                    "layerFunctionName": "GoogleImgLayer"
+                  }
+                },
+                {
+                  "title": "谷歌街道图",
+                  "thumbNail": "./assets/images/thumbNail/google_street.png",
+                  "layer": {
+                    "layerFunctionName": "GoogleStreetLayer"
+                  }
+                },
+                {
+                  "title": "谷歌地形图",
+                  "thumbNail": "./assets/images/thumbNail/google_terrain.png",
+                  "layer": {
+                    "layerFunctionName": "GoogleTerrainLayer"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "id": "layerManager",
+            "type": "LayerManager",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "always": true,
+              "draggable": false,
+              "closable": false,
+              "title": "layerManager",
+              "showHeader": false,
+              "transparent": true,
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 400,
+                  "right": 0
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "panelPosition": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 100
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 2
+                }
+              },
+              "contentHeight": "500px",
+              "treeDataPath": "./assets/json/layerManager.json"
+            }
+          },
+          {
+            "id": "KMLTimeImages_1",
+            "type": "KMLTimeImages",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "title": "全球植被覆盖指数",
+              "display": "solo",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "10%"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": "20%"
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "baseUri": "http://124.16.184.93:8080/DATA/Land/NDVI/",
+              "target": "NDVI.kml"
+            }
+          },
+          {
+            "id": "KMLTimeImages_2",
+            "type": "KMLTimeImages",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "title": "丝路主导文明",
+              "display": "solo",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "10%"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": "20%"
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "baseUri": "http://36.110.66.218:8888/Temporal/",
+              "target": "Civilization Influencing Zone.kml"
+            }
+          },
+          {
+            "id": "BusLine_1",
+            "type": "dBusLine",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "title": "公交车路线模拟",
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "10%"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": "20%"
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "src": "./assets/data/bus.json"
+            }
+          },
+          {
+            "id": "TestLine_1",
+            "type": "dTestLine",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "title": "张骞第一次出塞",
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "10%"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": "20%"
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "src": "./assets/data/zhangqian1.json"
+            }
+          },
+          {
+            "id": "TestLine_2",
+            "type": "dTestLine",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "title": "张骞第二次出塞",
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "10%"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": "20%"
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "src": "./assets/data/zhangqian2.json"
+            }
+          },
+          {
+            "id": "zHLine_1",
+            "type": "dTestLine1",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "title": "郑和第一次下西洋",
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "10%"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": "20%"
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "src": "./assets/data/zhenghe1.json"
+            }
+          },
+          {
+            "id": "zHLine_7",
+            "type": "dTestLine1",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": true,
+              "title": "郑和第七次下西洋",
+              "display": "widget",
+              "position": {
+                "vertical": {
+                  "value": "auto",
+                  "align": "top",
+                  "top": "10%"
+                },
+                "horizontal": {
+                  "value": "auto",
+                  "align": "left",
+                  "left": "20%"
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "src": "./assets/data/zhenghe7.json"
+            }
+          },
+          {
+            "id": "split",
+            "type": "Split",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": false,
+              "closable": false,
+              "title": "Split",
+              "showHeader": false,
+              "transparent": true,
+              "display": "solo",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 0,
+                  "right": 0
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "panelPosition": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 200
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 2
+                }
+              }
+            }
+          },
+          {
+            "id": "baseLayerPicker_1",
+            "type": "BaseLayerPicker",
+            "targets": [],
+            "settings": {
+              "visible": true,
+              "draggable": false,
+              "closable": false,
+              "title": "baseLayerPicker",
+              "showHeader": false,
+              "transparent": true,
+              "display": "pin",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 0,
+                  "right": 0
+                },
+                "zIndex": 2
+              }
+            },
+            "config": {
+              "defaultBaseLayerIndex": 0,
+              "baseTerrainOptions":[
+                {
+                  "title":"东山县test",
+
+                  "type": "cesium"
+                }
+              ]
+
+            }
+          },
+          {
+            "id": "charts_1",
+            "type": "dCharts1",
+            "targets": [],
+            "settings": {
+              "visible": false,
+              "draggable": false,
+              "closable": true,
+              "title": "图表展览",
+              "showHeader": true,
+              "transparent": true,
+              "display": "solo",
+              "position": {
+                "vertical": {
+                  "value": "adaptive",
+                  "top": 0,
+                  "bottom": 0
+                },
+                "horizontal": {
+                  "value": "adaptive",
+                  "left": 0,
+                  "right": 0
+                },
+                "zIndex": 5
+              }
+            },
+            "config": {
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
